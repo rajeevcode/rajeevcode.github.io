@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rajeev Kumar — AI Product Leader & Engineering Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
@@ -14,8 +15,8 @@
 :root{--bg:#06080F;--s1:#0C1120;--t:#F1F5F9;--m:#64748B;--soft:#94A3B8;
   --blue:#38BDF8;--gold:#F59E0B;--green:#34D399;--purple:#818CF8;--pink:#F472B6;}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--t);font-family:'Syne',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}
+body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6,.heading{font-family:'Plus Jakarta Sans',sans-serif;font-feature-settings:'cv02','cv03','cv04','cv11';letter-spacing:-0.01em}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:rgba(56,189,248,0.4);border-radius:2px}
 ::selection{background:rgba(56,189,248,0.2);color:var(--blue)}
 .cg{position:fixed;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,0.03) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;transition:transform 0.06s linear;will-change:transform}
@@ -115,7 +116,7 @@ function Nav({active}){
       </>)}
     </nav>
     {mob&&open&&(<div style={{position:'fixed',top:64,left:0,right:0,zIndex:999,background:'rgba(6,8,15,0.97)',backdropFilter:'blur(24px)',borderBottom:'1px solid rgba(255,255,255,0.06)',animation:'slideDown 0.2s ease',paddingBottom:16}}>
-      {links.map(l=>(<button key={l.id} onClick={()=>go(l.id)} style={{display:'block',width:'100%',textAlign:'left',padding:'15px 24px',background:'none',border:'none',cursor:'pointer',fontFamily:'Syne',fontSize:15,fontWeight:600,color:active===l.id?'#38BDF8':'#94A3B8',borderLeft:`3px solid ${active===l.id?'#38BDF8':'transparent'}`}}>{l.l}</button>))}
+      {links.map(l=>(<button key={l.id} onClick={()=>go(l.id)} style={{display:'block',width:'100%',textAlign:'left',padding:'15px 24px',background:'none',border:'none',cursor:'pointer',fontFamily:'Plus Jakarta Sans',fontSize:15,fontWeight:600,color:active===l.id?'#38BDF8':'#94A3B8',borderLeft:`3px solid ${active===l.id?'#38BDF8':'transparent'}`}}>{l.l}</button>))}
       <div style={{padding:'12px 20px 0'}}><a href="mailto:rajeevkmba2025@gmail.com" style={{display:'block',textAlign:'center',padding:13,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',color:'#fff',textDecoration:'none',fontSize:13,fontWeight:700}}>Hire Me →</a></div>
     </div>)}
   </>);
@@ -140,11 +141,11 @@ function Hero(){
               <span style={{width:7,height:7,borderRadius:'50%',background:'#34D399',boxShadow:'0 0 8px #34D399',display:'inline-block',animation:'pulse 2s infinite',flexShrink:0}}/>
               <span style={{fontFamily:'JetBrains Mono',fontSize:mob?8.5:10,color:'#38BDF8',letterSpacing:'1px'}}>AVAILABLE · PORTO · EU WORK AUTH</span>
             </div>
-            <h1 style={{fontFamily:'Syne',fontWeight:800,fontSize:mob?'clamp(44px,12vw,64px)':'clamp(46px,5.5vw,76px)',lineHeight:0.96,letterSpacing:'-2.5px',color:'#F1F5F9',marginBottom:16}}>
+            <h1 style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?'clamp(44px,12vw,64px)':'clamp(46px,5.5vw,76px)',lineHeight:0.96,letterSpacing:'-2px',color:'#F1F5F9',marginBottom:16}}>
               Rajeev<br/><span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Kumar</span>
             </h1>
             <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:20,minHeight:34}}>
-              <span style={{fontFamily:'Instrument Serif',fontStyle:'italic',fontSize:mob?19:25,color:'#94A3B8'}}>{typed}</span>
+              <span style={{fontFamily:'DM Sans',fontStyle:'italic',fontSize:mob?19:25,color:'#94A3B8'}}>{typed}</span>
               <span style={{display:'inline-block',width:2,height:20,background:'#38BDF8',animation:'blink 1s steps(1) infinite',flexShrink:0}}/>
             </div>
             <p style={{fontSize:mob?13.5:15,lineHeight:1.88,color:'#94A3B8',maxWidth:520,marginBottom:26}}>10+ years shipping AI-powered SaaS and fintech products from 0→1 across 25+ global markets. Started as an engineer. Grew into product. Never lost the technical edge. Today I build GenAI platforms hands-on — writing prompts, owning pipelines, shipping fast.</p>
@@ -152,7 +153,7 @@ function Hero(){
               {[{h:"mailto:rajeevkmba2025@gmail.com",l:"Get in Touch",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn →",p:false},{h:"https://github.com/rajeevcode",l:"GitHub →",p:false}].map(b=>(<a key={b.l} href={b.h} target={b.p?undefined:"_blank"} style={{padding:b.p?'12px 24px':'11px 18px',borderRadius:8,fontSize:12,fontWeight:700,textDecoration:'none',background:b.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.04)',color:b.p?'#fff':'#94A3B8',border:b.p?'none':'1px solid rgba(255,255,255,0.09)',transition:'all 0.2s'}}>{b.l}</a>))}
             </div>
             <div style={{display:'flex',gap:mob?18:36,flexWrap:'wrap',paddingTop:22,borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-              {stats.map(s=>(<div key={s.l}><div style={{fontFamily:'Syne',fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B'}}>{s.s}</div></div>))}
+              {stats.map(s=>(<div key={s.l}><div style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B'}}>{s.s}</div></div>))}
             </div>
           </div>
           {!mob&&(<div style={{display:'flex',flexDirection:'column',gap:12,animation:'fadeUp 0.75s ease 0.2s both'}}>
@@ -164,14 +165,14 @@ function Hero(){
               <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#374151',marginTop:8}}>{'}'}</div>
             </div>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-              {[{l:'Revenue Impact',v:'$21M+',s:'across 25+ markets',c:'#38BDF8'},{l:'Peak Transactions',v:'528K+',s:'daily — Jumia Group',c:'#F59E0B'},{l:'AI Signals / Day',v:'2,000+',s:'GenAI platform live',c:'#34D399'},{l:'Squads Led',v:'4',s:'cross-functional EM',c:'#818CF8'}].map(m=>(<div key={m.l} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.06)',borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',letterSpacing:'1px',textTransform:'uppercase',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Syne',fontSize:20,fontWeight:800,color:'#F1F5F9',letterSpacing:'-1px',marginBottom:2}}>{m.v}</div><div style={{fontSize:10,color:'#64748B'}}>{m.s}</div></div>))}
+              {[{l:'Revenue Impact',v:'$21M+',s:'across 25+ markets',c:'#38BDF8'},{l:'Peak Transactions',v:'528K+',s:'daily — Jumia Group',c:'#F59E0B'},{l:'AI Signals / Day',v:'2,000+',s:'GenAI platform live',c:'#34D399'},{l:'Squads Led',v:'4',s:'cross-functional EM',c:'#818CF8'}].map(m=>(<div key={m.l} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.06)',borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',letterSpacing:'1px',textTransform:'uppercase',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:20,fontWeight:800,color:'#F1F5F9',letterSpacing:'-1px',marginBottom:2}}>{m.v}</div><div style={{fontSize:10,color:'#64748B'}}>{m.s}</div></div>))}
             </div>
           </div>)}
         </div>
         {mob&&(<div style={{marginTop:28,background:'#0C1120',border:'1px solid rgba(255,255,255,0.08)',borderRadius:16,padding:18}}>
           <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginBottom:12}}>rajeev.config</div>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:9}}>
-            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Porto 🇵🇹 EU',c:'#38BDF8'},{l:'Revenue',v:'$21M+',c:'#F59E0B'},{l:'Markets',v:'25+ Global',c:'#818CF8'},{l:'Squads Led',v:'4 EM',c:'#F472B6'},{l:'MBA',v:'IE Biz School',c:'#38BDF8'}].map(m=>(<div key={m.l} style={{background:'rgba(255,255,255,0.03)',borderRadius:10,padding:'11px 13px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:8,color:'#64748B',textTransform:'uppercase',letterSpacing:'1px',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Syne',fontSize:14,fontWeight:800,color:'#F1F5F9',lineHeight:1.2}}>{m.v}</div></div>))}
+            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Porto 🇵🇹 EU',c:'#38BDF8'},{l:'Revenue',v:'$21M+',c:'#F59E0B'},{l:'Markets',v:'25+ Global',c:'#818CF8'},{l:'Squads Led',v:'4 EM',c:'#F472B6'},{l:'MBA',v:'IE Biz School',c:'#38BDF8'}].map(m=>(<div key={m.l} style={{background:'rgba(255,255,255,0.03)',borderRadius:10,padding:'11px 13px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:8,color:'#64748B',textTransform:'uppercase',letterSpacing:'1px',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:14,fontWeight:800,color:'#F1F5F9',lineHeight:1.2}}>{m.v}</div></div>))}
           </div>
         </div>)}
       </div>
@@ -204,7 +205,7 @@ function Experience(){
         <div key={active} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?22:36,position:'relative',overflow:'hidden',animation:'fadeIn 0.25s ease'}}>
           <div style={{position:'absolute',top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${e.color},transparent)`}}/>
           <div style={{display:'inline-block',padding:'4px 11px',borderRadius:20,background:`rgba(${rgb(e.color)},0.1)`,border:`1px solid rgba(${rgb(e.color)},0.22)`,fontSize:10,fontWeight:700,color:e.color,letterSpacing:'1px',textTransform:'uppercase',marginBottom:10}}>{e.type}</div>
-          <h3 style={{fontFamily:'Syne',fontSize:mob?17:22,fontWeight:800,letterSpacing:'-0.5px',color:'#F1F5F9',marginBottom:8,lineHeight:1.2}}>{e.role}</h3>
+          <h3 style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?17:22,fontWeight:800,letterSpacing:'-0.5px',color:'#F1F5F9',marginBottom:8,lineHeight:1.2}}>{e.role}</h3>
           <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:12}}><span style={{fontSize:12,color:e.color,fontWeight:700}}>{e.company}</span><span style={{fontSize:11,color:'#64748B'}}>📍 {e.loc}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B'}}>{e.period}</span></div>
           <p style={{fontSize:mob?12.5:13.5,lineHeight:1.78,color:'#94A3B8',marginBottom:14}}>{e.desc}</p>
           <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:14}}>
@@ -303,7 +304,7 @@ function Lab(){
       <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'repeat(2,1fr)',gap:12,marginTop:36}}>
         {trading.map(it=>(<div key={it.l} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?18:24,display:'flex',gap:16,transition:'all 0.22s',cursor:'default'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(it.c)},0.3)`;e.currentTarget.style.transform='translateY(-3px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
           <div style={{fontSize:22,flexShrink:0,marginTop:2}}>{it.icon}</div>
-          <div><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'1.5px',color:it.c,textTransform:'uppercase',marginBottom:5}}>{it.l}</div><div style={{fontFamily:'Syne',fontSize:mob?14:16,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{it.v}</div><div style={{fontSize:11.5,color:'#64748B',lineHeight:1.6}}>{it.s}</div></div>
+          <div><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'1.5px',color:it.c,textTransform:'uppercase',marginBottom:5}}>{it.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?14:16,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{it.v}</div><div style={{fontSize:11.5,color:'#64748B',lineHeight:1.6}}>{it.s}</div></div>
         </div>))}
       </div>
       <div className="rv" style={{marginTop:12,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'18px 18px':'22px 26px'}}>
@@ -313,7 +314,7 @@ function Lab(){
       <div className="rv" style={{marginTop:12,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'18px 18px':'22px 26px'}}>
         <div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'2px',color:'#F59E0B',textTransform:'uppercase',marginBottom:14}}>Education</div>
         <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 1fr',gap:12}}>
-          {ed.map(e=>(<div key={e.deg} style={{padding:mob?14:18,borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(e.c)},0.12)`}}><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:e.c,letterSpacing:'1px',marginBottom:6}}>{e.date}</div><div style={{fontFamily:'Syne',fontSize:mob?13:14,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{e.deg}</div><div style={{fontSize:11.5,color:'#64748B',marginBottom:6}}>{e.inst}</div><div style={{fontSize:11,color:e.c,fontWeight:600}}>{e.detail}</div></div>))}
+          {ed.map(e=>(<div key={e.deg} style={{padding:mob?14:18,borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(e.c)},0.12)`}}><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:e.c,letterSpacing:'1px',marginBottom:6}}>{e.date}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?13:14,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{e.deg}</div><div style={{fontSize:11.5,color:'#64748B',marginBottom:6}}>{e.inst}</div><div style={{fontSize:11,color:e.c,fontWeight:600}}>{e.detail}</div></div>))}
         </div>
       </div>
     </div>
@@ -327,7 +328,7 @@ function Contact(){
       <div style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:24,padding:mob?'44px 24px':'64px 48px',position:'relative',overflow:'hidden',textAlign:'center'}}>
         <div style={{position:'absolute',top:-120,left:'50%',transform:'translateX(-50%)',width:600,height:600,borderRadius:'50%',background:'radial-gradient(circle,rgba(56,189,248,0.045) 0%,transparent 70%)',pointerEvents:'none'}}/>
         <div style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'2.5px',color:'#38BDF8',textTransform:'uppercase',marginBottom:16}}>// ready_to_ship</div>
-        <h2 style={{fontFamily:'Syne',fontWeight:800,fontSize:mob?'clamp(28px,8vw,40px)':'clamp(34px,4.5vw,52px)',letterSpacing:'-2px',color:'#F1F5F9',marginBottom:14,lineHeight:1.1}}>
+        <h2 style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?'clamp(28px,8vw,40px)':'clamp(34px,4.5vw,52px)',letterSpacing:'-2px',color:'#F1F5F9',marginBottom:14,lineHeight:1.1}}>
           Let's build<br/><span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>something great.</span>
         </h2>
         <p style={{fontSize:mob?13.5:14.5,color:'#64748B',maxWidth:420,margin:'0 auto 32px',lineHeight:1.75}}>Available immediately. Remote-first. EU work authorised.<br/>I work best where ownership matters and speed counts.</p>
