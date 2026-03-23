@@ -3,20 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajeev Kumar — AI Product Leader & Engineering Manager</title>
+<title>Rajeev Kumar — AI Systems Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#06080F;--s1:#0C1120;--t:#F1F5F9;--m:#64748B;--soft:#94A3B8;
-  --blue:#38BDF8;--gold:#F59E0B;--green:#34D399;--purple:#818CF8;--pink:#F472B6;}
+:root{
+  --bg:#06080F;--s1:#0C1120;--s2:#111828;
+  --t:#F1F5F9;--m:#64748B;--soft:#94A3B8;
+  --blue:#38BDF8;--gold:#F59E0B;--green:#34D399;--purple:#818CF8;--pink:#F472B6;
+}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4,h5,h6,.heading{font-family:'Plus Jakarta Sans',sans-serif;font-feature-settings:'cv02','cv03','cv04','cv11';letter-spacing:-0.01em}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}
+body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:15px;line-height:1.7}
+h1,h2,h3,h4,h5,h6{font-family:'Plus Jakarta Sans',sans-serif;font-feature-settings:'cv02','cv03','cv04'}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:rgba(56,189,248,0.4);border-radius:2px}
 ::selection{background:rgba(56,189,248,0.2);color:var(--blue)}
 .cg{position:fixed;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,0.03) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;transition:transform 0.06s linear;will-change:transform}
@@ -27,6 +32,7 @@ h1,h2,h3,h4,h5,h6,.heading{font-family:'Plus Jakarta Sans',sans-serif;font-featu
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glow{0%,100%{opacity:0.6}50%{opacity:1}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flowLine{0%{stroke-dashoffset:200}100%{stroke-dashoffset:0}}
 .rv{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .rv.vis{opacity:1;transform:translateY(0)}
 .hscroll{scrollbar-width:none;-ms-overflow-style:none}.hscroll::-webkit-scrollbar{display:none}
@@ -41,138 +47,193 @@ const rgb=h=>{const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);return
 function useMobile(bp=768){const[m,setM]=useState(()=>window.innerWidth<bp);useEffect(()=>{const h=()=>setM(window.innerWidth<bp);window.addEventListener('resize',h,{passive:true});return()=>window.removeEventListener('resize',h);},[bp]);return m;}
 function useReveal(){useEffect(()=>{const els=document.querySelectorAll('.rv');const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:0.06});els.forEach(el=>obs.observe(el));return()=>obs.disconnect();},[]);}
 
+/* ── DATA ── */
+const SYSTEMS=[
+  {id:"pulsara",name:"Pulsara",sub:"AI Decision Intelligence System",color:"#38BDF8",icon:"🧠",
+   tagline:"Where AI outputs meet real product execution.",
+   desc:"A production system that compresses signals, AI outputs, and operator decisions into a single execution layer. This is the command layer — not a tool, a system.",
+   bullets:["100–300 AI outputs/day flowing through decision pipelines","Signal → scoring → decision → execution loop","Reduced decision latency from days → hours","Internal by design — protects competitive intelligence"],
+   metrics:["100–300 outputs/day","Days → Hours latency","Signal → Execution","0 manual routing"]},
+  {id:"rescaleos",name:"Rescale OS",sub:"AI Content Production Infrastructure",color:"#F59E0B",icon:"⚙️",
+   tagline:"Content factory, not content tool.",
+   desc:"A production-grade pipeline that generates, evaluates, and routes content at scale. Multi-model orchestration with automated scoring and routing that feeds directly into Pulsara.",
+   bullets:["Multi-model orchestration: Claude · GPT · Codex","Automated generation → scoring → routing pipeline","60–70% faster production cycles","Directly feeds Pulsara decision layer"],
+   metrics:["Multi-model orchestration","60–70% faster","Auto scoring + routing","Feeds Pulsara"]},
+  {id:"creative",name:"Creative Engine",sub:"Structured AI Generation Layer",color:"#34D399",icon:"✍️",
+   tagline:"Built for iteration, not one-off generation.",
+   desc:"LLM pipeline with prompt versioning, format constraints, and review checkpoints. Ensures output consistency and quality at scale across the entire content stack.",
+   bullets:["Prompt versioning and format constraints","Automated review checkpoints for quality","Scalable creative production at volume","Plugs into Rescale OS routing layer"],
+   metrics:["Prompt versioning","Format constraints","Quality gates","Scalable output"]},
+];
+
 const EXP=[
-  {period:"2026 — Present",role:"Head of Product & AI Innovation (Founding Engineer)",company:"Rescale Media · Puslara",loc:"Remote",type:"GenAI Platform",color:"#38BDF8",
-   desc:"Architecting production-grade GenAI systems from 0→1. Multi-stage LLM pipelines, prompt engineering, AI agent orchestration. High-velocity decisions with incomplete data.",
-   bullets:["Multi-stage Claude pipeline: ~70% noise reduction on 2,000+ daily signals","n8n orchestration: 60–70% faster content delivery","0→1 platform shipped in weeks as founding engineer","LLM eval framework and feedback loops from day one"],
-   metrics:["2,000+ signals/day","~70% noise ↓","0→1 in weeks","60–70% faster"],
-   stack:["Claude API","OpenRouter","n8n","Python","Cursor","Lovable","Prompt Eng"]},
-  {period:"2023 — 2024",role:"Senior Product Manager",company:"HafH · Kabuk Style Inc.",loc:"Remote · 100+ Markets",type:"AI & FinTech",color:"#F59E0B",
-   desc:"End-to-end product strategy for global travel-fintech. PCI-DSS digital wallet, ML pricing engine, AI content automation. Led 4 distributed squads across EU, JP, IN, PK.",
-   bullets:["4 squads across 4 timezones — EM-level ownership","PCI-DSS digital wallet: 40% adoption in 90 days","ML pricing engine: 20× supply scale, $600K in 8 months","AI content pipeline: 65% reduction in manual ops"],
-   metrics:["20× supply scale","40% wallet adoption","$600K / 8 months","25K+ new users"],
-   stack:["BigQuery","GA4","Mixpanel","Python","Jira","Figma","LLM APIs"]},
-  {period:"2021 — 2023",role:"Senior Product Manager",company:"Mumzworld · Tamer Group",loc:"Dubai, UAE · GCC & MENA",type:"AI · Payments · SaaS",color:"#34D399",
-   desc:"Built 0→1 B2B SaaS marketplace from discovery to $2.1M ARR. AI personalisation, LLM conversational automation, payment orchestration.",
+  {period:"2026 — Present",role:"Head of Product & AI Innovation",co:"Rescale Media · Puslara",badge:"Founding Engineer",loc:"Remote",color:"#38BDF8",type:"GenAI Systems",
+   desc:"Building Pulsara + Rescale OS from 0→1. End-to-end: architecture, product decisions, LLM pipeline design, and execution. No committee — just shipping.",
+   bullets:["Designed Pulsara decision intelligence system — 100–300 AI outputs/day","Built Rescale OS multi-model content pipeline: 60–70% faster production","0→1 shipped in weeks with founding engineer ownership","LLM eval framework, feedback loops, and prompt versioning from day one"],
+   metrics:["0→1 in weeks","60–70% faster","Days→Hours","Multi-model"]},
+  {period:"2023 — 2024",role:"Senior Product Manager",co:"HafH · Kabuk Style Inc.",loc:"Remote · 100+ Markets",color:"#F59E0B",type:"AI & FinTech",
+   desc:"Owned full product direction for a global travel-fintech platform. PCI-DSS digital wallet, ML pricing engine, AI content automation. Led 4 distributed squads across EU, JP, IN, PK.",
+   bullets:["4 squads across 4 timezones — full EM ownership","PCI-DSS digital wallet: 40% adoption in 90 days","ML pricing engine: 20× supply scale, $600K in 8 months","AI content pipeline: 65% reduction in manual ops"],
+   metrics:["20× supply scale","40% wallet adoption","$600K / 8mo","25K+ new users"]},
+  {period:"2021 — 2023",role:"Senior Product Manager",co:"Mumzworld · Tamer Group",loc:"Dubai, UAE · GCC & MENA",color:"#34D399",type:"AI · Payments · SaaS",
+   desc:"Built 0→1 B2B SaaS marketplace from discovery to $2.1M ARR. AI personalisation engine with 209% conversion uplift. Payment orchestration layer. Full lifecycle ownership.",
    bullets:["0→1 B2B SaaS — $2.1M ARR from scratch","AI personalisation engine: 209% conversion uplift","LLM automation: 85% faster support resolution","NPS +18 pts via payment friction reduction"],
-   metrics:["209% conversion uplift","$2.1M new ARR","NPS +18 pts","85% faster"],
-   stack:["NetSuite","HubSpot","SQL","Power BI","Figma","REST APIs","LLM"]},
-  {period:"2019 — 2020",role:"Senior Product Owner",company:"Jumia Group",loc:"Porto · 11 African Markets",type:"Payments & Platform",color:"#818CF8",
+   metrics:["209% conversion uplift","$2.1M new ARR","NPS +18 pts","85% faster"]},
+  {period:"2019 — 2020",role:"Senior Product Owner",co:"Jumia Group",loc:"Porto · 11 African Markets",color:"#818CF8",type:"Payments & Platform",
    desc:"Payment product at scale — 528K+ daily transactions across 11 African markets. Built for low-bandwidth, high-trust-deficit environments.",
    bullets:["528K+ daily transactions across 11 markets","Instalment payments: $2.5M revenue, 2.3× conversion","Gamified discovery: 40% session depth increase","CMS automation: 75% workload cut for ops teams"],
-   metrics:["$2.5M revenue","2.3× conversion","75% workload cut","528K+ daily txns"],
-   stack:["SQL","Mixpanel","Jira","REST APIs","Python"]},
-  {period:"2017 — 2019",role:"Technical Product Manager",company:"Lazada · Alibaba Group",loc:"Singapore · 7 APAC Markets",type:"Marketplace & Payments",color:"#F472B6",
+   metrics:["$2.5M revenue","2.3× conversion","75% workload cut","528K+ daily txns"]},
+  {period:"2017 — 2019",role:"Technical Product Manager",co:"Lazada · Alibaba Group",loc:"Singapore · 7 APAC Markets",color:"#F472B6",type:"Marketplace & Payments",
    desc:"Payments at Alibaba scale. 8+ payment API integrations, Lazada Wallet, ML checkout optimisation across 7 Southeast Asian markets.",
-   bullets:["Checkout CVR: 5.3% → 12.2% via ML optimisation","Launched Lazada Wallet — first digital wallet on platform","8+ payment API integrations: regional banks + int'l rails","$5M NMV impact across 7 APAC markets"],
-   metrics:["5.3%→12.2% CVR","$5M NMV","+18% txn success","7 APAC markets"],
-   stack:["Android SDK","SQL","BigQuery","SDK Design","REST APIs","Payment Rails"]},
-  {period:"2011 — 2016",role:"Technology Lead & QA Manager",company:"Reliance · JustEat · Zynga · Indium",loc:"Bengaluru, India",type:"Engineering Foundation",color:"#94A3B8",
-   desc:"5 years hands-on across e-commerce, food delivery, and gaming. System integration, QA automation, engineering team leadership.",
-   bullets:["SAP MM + Sterling OMS: 98% inventory accuracy","QA framework built from scratch: 85% test automation","2M+ record zero-downtime data migration","Hired and grew a 6-person engineering squad"],
-   metrics:["98% accuracy","85% test auto","2M+ migrated","6-person squad"],
-   stack:["SAP MM","Sterling OMS","Python","Hybris","CI/CD","Selenium","SQL"]},
+   bullets:["Checkout CVR: 5.3% → 12.2% via ML optimisation","Launched Lazada Wallet — first digital wallet on platform","8+ payment API integrations across regional + int'l rails","$5M NMV impact across 7 APAC markets"],
+   metrics:["5.3%→12.2% CVR","$5M NMV","+18% txn success","7 APAC markets"]},
+  {period:"2011 — 2016",role:"Technology Lead & QA Manager",co:"Reliance · JustEat · Zynga · Indium",loc:"Bengaluru, India",color:"#94A3B8",type:"Engineering Foundation",
+   desc:"5 years hands-on: e-commerce, food delivery, gaming. System integration, QA automation, engineering leadership. Why I can read a PR and debug prod alongside any engineer.",
+   bullets:["SAP MM + Sterling OMS: 98% inventory accuracy at Reliance Retail","QA framework built from scratch: 85% test automation","2M+ record zero-downtime data migration","Hired and grew a 6-person engineering squad"],
+   metrics:["98% accuracy","85% test auto","2M+ migrated","6-person squad"]},
 ];
-const PRINCIPLES=[
-  {icon:"🔍",label:"Discover",color:"#38BDF8",desc:"Interrogate the problem before touching the solution.",items:["Jobs-to-be-Done","Data + Qual Triangulation","Assumption Mapping","5 Whys","Competitive Intel"]},
-  {icon:"🎯",label:"Prioritise",color:"#F59E0B",desc:"Every yes is a no to ten other things.",items:["RICE / ICE Scoring","Now · Next · Later","OKR Alignment","Opportunity Scoring","Kill Darlings"]},
-  {icon:"🚀",label:"Ship",color:"#34D399",desc:"Shipped beats perfect. Instrument, then iterate.",items:["Instrumentation First","Feature Flags","Gradual Rollout","RFC + Decision Logs","Definition of Done"]},
-  {icon:"📊",label:"Measure",color:"#818CF8",desc:"If it's not measured, it didn't ship.",items:["North Star + Guardrails","Leading vs Lagging KPIs","Cohort Analysis","Experiment Design","Attribution"]},
-  {icon:"👥",label:"Lead",color:"#F472B6",desc:"PMs don't manage engineers — they earn them.",items:["4 Squads · 25+ Engineers","Async-First RFC Culture","Engineering Parity","Blameless Retros","Technical Hiring"]},
-  {icon:"⚙️",label:"Engineer",color:"#94A3B8",desc:"Speaking engineer fluently is a PM superpower.",items:["System Design","API-First Spec Writing","Data Modelling","PR Reviews","LLM Evals"]},
-];
+
 const SKILLS=[
-  {cat:"AI & GenAI",color:"#38BDF8",icon:"🤖",items:["LLM Pipeline Design","Prompt Engineering","Multi-Model Orchestration","RAG Architecture","AI Agent Design","Signal Intelligence","Feedback Loop Design","Agentic Workflows"]},
-  {cat:"Product Leadership",color:"#F59E0B",icon:"🎯",items:["0→1 Launches","Ruthless Prioritisation","Roadmap Ownership","OKR Frameworks","PRD / RFC Writing","Stage-Gate","B2B SaaS","Marketplace"]},
-  {cat:"Engineering Intelligence",color:"#34D399",icon:"⚙️",items:["System Design","REST API Design","Data Modelling","SQL / BigQuery","Python Scripting","CI/CD Awareness","Event-Driven Arch","LLM Evals"]},
+  {cat:"AI & LLM Systems",color:"#38BDF8",icon:"🤖",items:["LLM Pipeline Design","Multi-Model Orchestration","Prompt Engineering","RAG Architecture","AI Agent Design","Signal Intelligence","Feedback Loop Design","Agentic Workflows"]},
+  {cat:"Product Leadership",color:"#F59E0B",icon:"🎯",items:["0→1 Launches","Systems Thinking","Roadmap Ownership","OKR Frameworks","PRD / RFC Writing","Stage-Gate","B2B SaaS","Marketplace"]},
+  {cat:"Engineering Depth",color:"#34D399",icon:"⚙️",items:["System Design","REST API Design","Data Modelling","SQL / BigQuery","Python Scripting","CI/CD Awareness","Event-Driven Arch","LLM Evals"]},
   {cat:"Fintech & Payments",color:"#818CF8",icon:"💳",items:["Digital Wallets","PCI-DSS Architecture","Payment APIs","BNPL / Instalment","Multi-Currency","Idempotent APIs","Payment Rails","Crypto / DeFi"]},
   {cat:"UI/UX & Design",color:"#F472B6",icon:"🎨",items:["Figma","User Research","Info Architecture","Journey Mapping","Design Systems","Usability Testing","Wireframing","A/B Testing"]},
   {cat:"Data & Analytics",color:"#64748B",icon:"📊",items:["SQL / BigQuery","Mixpanel","PostHog","Amplitude","GA4","Cohort Analysis","Funnel Analysis","KPI Frameworks"]},
 ];
+
 const TOOLS=[
   {n:"Claude",t:1},{n:"Claude Code",t:1},{n:"ChatGPT",t:1},{n:"Cursor",t:1},{n:"Lovable",t:1},{n:"v0",t:1},
   {n:"OpenRouter",t:2},{n:"n8n",t:2},{n:"GitHub",t:2},{n:"Linear",t:2},{n:"Figma",t:2},{n:"PostHog",t:2},
   {n:"Amplitude",t:2},{n:"Mixpanel",t:2},{n:"Notion",t:2},{n:"BigQuery",t:2},
 ];
 
-function SL({label,sub}){return(<div style={{marginBottom:sub?10:0}}><div style={{display:'flex',alignItems:'center',gap:12}}><span style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'3px',color:'#38BDF8',textTransform:'uppercase',whiteSpace:'nowrap',flexShrink:0}}>{'// '}{label}</span><div style={{flex:1,height:1,background:'linear-gradient(90deg,rgba(56,189,248,0.35),transparent)',minWidth:0}}/></div>{sub&&<p style={{fontSize:13,color:'#64748B',marginTop:8,lineHeight:1.7}}>{sub}</p>}</div>);}
+/* ── HELPERS ── */
+function SL({label,sub}){return(<div style={{marginBottom:sub?10:0}}><div style={{display:'flex',alignItems:'center',gap:12}}><span style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'3px',color:'#38BDF8',textTransform:'uppercase',whiteSpace:'nowrap',flexShrink:0}}>{'// '}{label}</span><div style={{flex:1,height:1,background:'linear-gradient(90deg,rgba(56,189,248,0.35),transparent)',minWidth:0}}/></div>{sub&&<p style={{fontSize:13.5,color:'#64748B',marginTop:8,lineHeight:1.7,fontFamily:'DM Sans'}}>{sub}</p>}</div>);}
 
+/* ── NAV ── */
 function Nav({active}){
   const mob=useMobile();const[sc,setSc]=useState(false);const[open,setOpen]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>40);window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h);},[]);
   const go=id=>{setOpen(false);setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}),50);};
-  const links=[{id:'about',l:'About'},{id:'experience',l:'Experience'},{id:'thinking',l:'Thinking'},{id:'skills',l:'Stack'},{id:'lab',l:'Lab'},{id:'contact',l:'Contact'}];
+  const links=[{id:'about',l:'About'},{id:'systems',l:'Systems'},{id:'thinking',l:'Thinking'},{id:'experience',l:'Career'},{id:'skills',l:'Stack'},{id:'contact',l:'Contact'}];
   return(<>
     <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:1000,padding:mob?'0 20px':'0 40px',height:64,display:'flex',alignItems:'center',justifyContent:'space-between',background:(sc||open)?'rgba(6,8,15,0.97)':'transparent',backdropFilter:(sc||open)?'blur(24px)':'none',borderBottom:(sc||open)?'1px solid rgba(255,255,255,0.06)':'1px solid transparent',transition:'all 0.3s'}}>
       <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
-        <div style={{width:36,height:36,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:12,fontWeight:800,color:'#fff',boxShadow:'0 0 28px rgba(56,189,248,0.3)',flexShrink:0}}>RK</div>
-        <div><div style={{fontWeight:700,fontSize:13}}>Rajeev Kumar</div><div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#38BDF8',letterSpacing:'2px'}}>AI PM · EM · BUILDER</div></div>
+        <div style={{width:36,height:36,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:12,fontWeight:800,color:'#fff',boxShadow:'0 0 28px rgba(56,189,248,0.3)',flexShrink:0,fontFamily:'Plus Jakarta Sans'}}>RK</div>
+        <div><div style={{fontWeight:700,fontSize:13,fontFamily:'Plus Jakarta Sans'}}>Rajeev Kumar</div><div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#38BDF8',letterSpacing:'2px'}}>AI SYSTEMS BUILDER</div></div>
       </div>
       {mob?(<button onClick={()=>setOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',padding:8,display:'flex',flexDirection:'column',gap:5,flexShrink:0}}>
         {open?<span style={{color:'#38BDF8',fontSize:20,lineHeight:1}}>✕</span>:<>{[0,1,2].map(i=><span key={i} style={{display:'block',width:i===1?16:22,height:2,background:'#94A3B8',borderRadius:2}}/>)}</>}
       </button>):(<>
-        <div style={{display:'flex',gap:2}}>{links.map(l=>(<a key={l.id} href={`#${l.id}`} style={{padding:'6px 13px',borderRadius:20,fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',textDecoration:'none',color:active===l.id?'#38BDF8':'#64748B',background:active===l.id?'rgba(56,189,248,0.1)':'transparent',border:active===l.id?'1px solid rgba(56,189,248,0.2)':'1px solid transparent',transition:'all 0.2s'}}>{l.l}</a>))}</div>
-        <a href="mailto:rajeevkmba2025@gmail.com" style={{padding:'9px 22px',borderRadius:20,fontSize:11,fontWeight:700,color:'#fff',background:'linear-gradient(135deg,#38BDF8,#818CF8)',textDecoration:'none',letterSpacing:'0.5px',boxShadow:'0 0 28px rgba(56,189,248,0.28)',whiteSpace:'nowrap',flexShrink:0}}>Hire Me →</a>
+        <div style={{display:'flex',gap:2}}>{links.map(l=>(<a key={l.id} href={`#${l.id}`} style={{padding:'6px 13px',borderRadius:20,fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',textDecoration:'none',color:active===l.id?'#38BDF8':'#64748B',background:active===l.id?'rgba(56,189,248,0.1)':'transparent',border:active===l.id?'1px solid rgba(56,189,248,0.2)':'1px solid transparent',transition:'all 0.2s',fontFamily:'Plus Jakarta Sans'}}>{l.l}</a>))}</div>
+        <a href="mailto:rajeevkmba2025@gmail.com" style={{padding:'9px 22px',borderRadius:20,fontSize:11,fontWeight:700,color:'#fff',background:'linear-gradient(135deg,#38BDF8,#818CF8)',textDecoration:'none',letterSpacing:'0.3px',boxShadow:'0 0 28px rgba(56,189,248,0.28)',whiteSpace:'nowrap',flexShrink:0,fontFamily:'Plus Jakarta Sans'}}>Let's Talk →</a>
       </>)}
     </nav>
     {mob&&open&&(<div style={{position:'fixed',top:64,left:0,right:0,zIndex:999,background:'rgba(6,8,15,0.97)',backdropFilter:'blur(24px)',borderBottom:'1px solid rgba(255,255,255,0.06)',animation:'slideDown 0.2s ease',paddingBottom:16}}>
       {links.map(l=>(<button key={l.id} onClick={()=>go(l.id)} style={{display:'block',width:'100%',textAlign:'left',padding:'15px 24px',background:'none',border:'none',cursor:'pointer',fontFamily:'Plus Jakarta Sans',fontSize:15,fontWeight:600,color:active===l.id?'#38BDF8':'#94A3B8',borderLeft:`3px solid ${active===l.id?'#38BDF8':'transparent'}`}}>{l.l}</button>))}
-      <div style={{padding:'12px 20px 0'}}><a href="mailto:rajeevkmba2025@gmail.com" style={{display:'block',textAlign:'center',padding:13,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',color:'#fff',textDecoration:'none',fontSize:13,fontWeight:700}}>Hire Me →</a></div>
+      <div style={{padding:'12px 20px 0'}}><a href="mailto:rajeevkmba2025@gmail.com" style={{display:'block',textAlign:'center',padding:13,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',color:'#fff',textDecoration:'none',fontSize:13,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>Let's Talk →</a></div>
     </div>)}
   </>);
 }
 
+/* ── HERO ── */
 function Hero(){
   const mob=useMobile();
   const[typed,setTyped]=useState('');
-  const phrases=["AI Product Leader.","GenAI Platform Builder.","Engineering Manager.","Crypto Quant.","I ship fast."];
+  const phrases=["I build systems.","Not just features.","AI-native. From 0→1.","Engineer → PM → Builder.","I ship fast."];
   const[pi,setPi]=useState(0);const[ci,setCi]=useState(0);const[del,setDel]=useState(false);
-  useEffect(()=>{const cur=phrases[pi];const t=setTimeout(()=>{if(!del){if(ci<cur.length){setTyped(cur.slice(0,ci+1));setCi(c=>c+1);}else setTimeout(()=>setDel(true),1800);}else{if(ci>0){setTyped(cur.slice(0,ci-1));setCi(c=>c-1);}else{setDel(false);setPi(i=>(i+1)%phrases.length);}}},del?36:80);return()=>clearTimeout(t);},[ci,del,pi]);
-  const cfgLines=[{k:"role",v:'["AI PM","GenAI Builder","EM"]',c:"#818CF8"},{k:"status",v:'"available_immediately"',c:"#34D399"},{k:"base",v:'"Porto 🇵🇹 · EU Work Auth"',c:"#38BDF8"},{k:"ai_stack",v:'["Claude","n8n","Python"]',c:"#F59E0B"},{k:"markets",v:'"EU · GCC · APAC · Africa"',c:"#F472B6"},{k:"mba",v:'"IE Business School · 17/20"',c:"#38BDF8"},{k:"impact",v:'"$21M+ · 25+ markets"',c:"#34D399"}];
-  const stats=[{v:"10+",l:"YRS",s:"Product Leadership"},{v:"$21M+",l:"IMPACT",s:"Measurable Value"},{v:"25+",l:"MARKETS",s:"Global Launches"},{v:"4",l:"SQUADS",s:"Led as EM"}];
+  useEffect(()=>{const cur=phrases[pi];const t=setTimeout(()=>{if(!del){if(ci<cur.length){setTyped(cur.slice(0,ci+1));setCi(c=>c+1);}else setTimeout(()=>setDel(true),2000);}else{if(ci>0){setTyped(cur.slice(0,ci-1));setCi(c=>c-1);}else{setDel(false);setPi(i=>(i+1)%phrases.length);}}},del?40:85);return()=>clearTimeout(t);},[ci,del,pi]);
+
+  const stats=[{v:"$15M+",l:"IMPACT",s:"Revenue + Cost Savings"},{v:"25+",l:"MARKETS",s:"Global Launches"},{v:"4",l:"SQUADS",s:"Led as EM"},{v:"0→1",l:"AI SYSTEMS",s:"In Production"}];
+
   return(
-    <section id="about" style={{minHeight:'100vh',display:'flex',alignItems:'center',padding:mob?'90px 20px 50px':'100px 40px 60px',position:'relative',overflow:'hidden'}}>
+    <section id="about" style={{minHeight:'100vh',display:'flex',alignItems:'center',padding:mob?'90px 20px 60px':'100px 40px 70px',position:'relative',overflow:'hidden'}}>
       <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(56,189,248,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.018) 1px,transparent 1px)',backgroundSize:'58px 58px',maskImage:'radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)',WebkitMaskImage:'radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)'}}/>
       <div style={{position:'absolute',top:'5%',left:'-8%',width:mob?300:700,height:mob?300:700,borderRadius:'50%',background:'radial-gradient(circle,rgba(56,189,248,0.04) 0%,transparent 70%)',pointerEvents:'none'}}/>
       <div style={{maxWidth:1100,margin:'0 auto',width:'100%',position:'relative',zIndex:1}}>
-        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 420px',gap:mob?36:80,alignItems:'center'}}>
+        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 420px',gap:mob?40:80,alignItems:'center'}}>
           <div style={{animation:'fadeUp 0.75s ease forwards'}}>
-            <div style={{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 14px',borderRadius:20,border:'1px solid rgba(56,189,248,0.2)',background:'rgba(56,189,248,0.05)',marginBottom:22}}>
+            <div style={{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 14px',borderRadius:20,border:'1px solid rgba(56,189,248,0.2)',background:'rgba(56,189,248,0.05)',marginBottom:24}}>
               <span style={{width:7,height:7,borderRadius:'50%',background:'#34D399',boxShadow:'0 0 8px #34D399',display:'inline-block',animation:'pulse 2s infinite',flexShrink:0}}/>
-              <span style={{fontFamily:'JetBrains Mono',fontSize:mob?8.5:10,color:'#38BDF8',letterSpacing:'1px'}}>AVAILABLE · PORTO · EU WORK AUTH</span>
+              <span style={{fontFamily:'JetBrains Mono',fontSize:mob?8.5:10,color:'#38BDF8',letterSpacing:'1px'}}>AVAILABLE · PORTO, PORTUGAL · EU WORK AUTH</span>
             </div>
-            <h1 style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?'clamp(44px,12vw,64px)':'clamp(46px,5.5vw,76px)',lineHeight:0.96,letterSpacing:'-2px',color:'#F1F5F9',marginBottom:16}}>
+            <h1 style={{fontWeight:800,fontSize:mob?'clamp(44px,12vw,68px)':'clamp(46px,5.5vw,76px)',lineHeight:0.96,letterSpacing:'-2px',color:'#F1F5F9',marginBottom:16}}>
               Rajeev<br/><span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Kumar</span>
             </h1>
-            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:20,minHeight:34}}>
-              <span style={{fontFamily:'DM Sans',fontStyle:'italic',fontSize:mob?19:25,color:'#94A3B8'}}>{typed}</span>
+            {/* The positioning statement */}
+            <div style={{marginBottom:20,paddingLeft:16,borderLeft:'3px solid rgba(56,189,248,0.4)'}}>
+              <p style={{fontSize:mob?14:16,color:'#F1F5F9',fontWeight:600,marginBottom:4,lineHeight:1.5}}>Most AI products generate outputs.</p>
+              <p style={{fontSize:mob?14:16,color:'#38BDF8',fontWeight:700,lineHeight:1.5}}>I build systems that decide what to do with them.</p>
+            </div>
+            <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:20,minHeight:32}}>
+              <span style={{fontFamily:'DM Sans',fontStyle:'italic',fontSize:mob?18:22,color:'#94A3B8',fontWeight:400}}>{typed}</span>
               <span style={{display:'inline-block',width:2,height:20,background:'#38BDF8',animation:'blink 1s steps(1) infinite',flexShrink:0}}/>
             </div>
-            <p style={{fontSize:mob?13.5:15,lineHeight:1.88,color:'#94A3B8',maxWidth:520,marginBottom:26}}>10+ years shipping AI-powered SaaS and fintech products from 0→1 across 25+ global markets. Started as an engineer. Grew into product. Never lost the technical edge. Today I build GenAI platforms hands-on — writing prompts, owning pipelines, shipping fast.</p>
-            <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:32}}>
-              {[{h:"mailto:rajeevkmba2025@gmail.com",l:"Get in Touch",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn →",p:false},{h:"https://github.com/rajeevcode",l:"GitHub →",p:false}].map(b=>(<a key={b.l} href={b.h} target={b.p?undefined:"_blank"} style={{padding:b.p?'12px 24px':'11px 18px',borderRadius:8,fontSize:12,fontWeight:700,textDecoration:'none',background:b.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.04)',color:b.p?'#fff':'#94A3B8',border:b.p?'none':'1px solid rgba(255,255,255,0.09)',transition:'all 0.2s'}}>{b.l}</a>))}
+            <p style={{fontSize:mob?13.5:15,lineHeight:1.88,color:'#94A3B8',maxWidth:520,marginBottom:28}}>
+              I design and ship AI-powered systems that automate decision-making, content, and growth — from 0→1 to scale. Started as an engineer → grew into product → now operating as a builder across both. Built products at Alibaba (Lazada), Jumia, Mumzworld, and HafH across 25+ global markets.
+            </p>
+            <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:36}}>
+              {[{h:"mailto:rajeevkmba2025@gmail.com",l:"Get in Touch",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn →",p:false},{h:"https://github.com/rajeevcode",l:"GitHub →",p:false}].map(b=>(<a key={b.l} href={b.h} target={b.p?undefined:"_blank"} style={{padding:b.p?'12px 24px':'11px 18px',borderRadius:8,fontSize:12,fontWeight:700,textDecoration:'none',background:b.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.04)',color:b.p?'#fff':'#94A3B8',border:b.p?'none':'1px solid rgba(255,255,255,0.09)',transition:'all 0.2s',fontFamily:'Plus Jakarta Sans'}}>{b.l}</a>))}
             </div>
             <div style={{display:'flex',gap:mob?18:36,flexWrap:'wrap',paddingTop:22,borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-              {stats.map(s=>(<div key={s.l}><div style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B'}}>{s.s}</div></div>))}
+              {stats.map(s=>(<div key={s.l}><div style={{fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontFamily:'JetBrains Mono',fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B',fontFamily:'DM Sans'}}>{s.s}</div></div>))}
             </div>
           </div>
+
           {!mob&&(<div style={{display:'flex',flexDirection:'column',gap:12,animation:'fadeUp 0.75s ease 0.2s both'}}>
+            {/* rajeev.config.ts code panel */}
             <div style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.08)',borderRadius:20,padding:'22px 24px',position:'relative',overflow:'hidden'}}>
-              <div style={{position:'absolute',top:-40,right:-40,width:160,height:160,borderRadius:'50%',background:'radial-gradient(circle,rgba(56,189,248,0.07) 0%,transparent 70%)'}}/>
-              <div style={{display:'flex',gap:6,marginBottom:14}}>{['#FF5F57','#FFBD2E','#28C840'].map(c=><div key={c} style={{width:10,height:10,borderRadius:'50%',background:c,opacity:0.7}}/>)}<span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginLeft:8}}>rajeev.config.ts</span></div>
-              <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#374151',marginBottom:8}}>{'const rajeev = {'}</div>
-              {cfgLines.map((cl,i)=>(<div key={i} style={{display:'flex',gap:8,fontFamily:'JetBrains Mono',fontSize:11,lineHeight:1.9,borderBottom:i<cfgLines.length-1?'1px solid rgba(255,255,255,0.028)':'none'}}><span style={{color:'#374151',minWidth:16,textAlign:'right',fontSize:9,paddingTop:2,userSelect:'none'}}>{i+1}</span><span style={{color:'#64748B',minWidth:88,flexShrink:0}}>{cl.k}:</span><span style={{color:cl.c}}>{cl.v}</span></div>))}
-              <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#374151',marginTop:8}}>{'}'}</div>
+              <div style={{position:'absolute',top:-40,right:-40,width:180,height:180,borderRadius:'50%',background:'radial-gradient(circle,rgba(56,189,248,0.07) 0%,transparent 70%)'}}/>
+              <div style={{display:'flex',gap:6,marginBottom:16}}>
+                {['#FF5F57','#FFBD2E','#28C840'].map(c=><div key={c} style={{width:10,height:10,borderRadius:'50%',background:c,opacity:0.8}}/>)}
+                <span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginLeft:8,letterSpacing:'0.5px'}}>rajeev.config.ts</span>
+              </div>
+              <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#374151',marginBottom:10}}>{'const rajeev = {'}</div>
+              {[
+                {k:"role",v:'["AI Systems Builder","GenAI","Founding Eng"]',c:"#818CF8"},
+                {k:"status",v:'"available_immediately"',c:"#34D399"},
+                {k:"base",v:'"Porto, Portugal 🇵🇹 · EU Work Auth"',c:"#38BDF8"},
+                {k:"systems",v:'["Pulsara","Rescale OS","Creative Engine"]',c:"#F59E0B"},
+                {k:"markets",v:'"EU · GCC · APAC · Africa"',c:"#F472B6"},
+                {k:"mba",v:'"IE Business School · GPA 17/20"',c:"#38BDF8"},
+                {k:"impact",v:'"$15M+ · 25+ markets · 0→1 AI"',c:"#34D399"},
+              ].map((cl,i,arr)=>(
+                <div key={i} style={{display:'flex',gap:8,fontFamily:'JetBrains Mono',fontSize:11,lineHeight:1.9,borderBottom:i<arr.length-1?'1px solid rgba(255,255,255,0.028)':'none'}}>
+                  <span style={{color:'#374151',minWidth:16,textAlign:'right',fontSize:9,paddingTop:2,userSelect:'none',flexShrink:0}}>{i+1}</span>
+                  <span style={{color:'#64748B',minWidth:72,flexShrink:0}}>{cl.k}:</span>
+                  <span style={{color:cl.c,fontSize:10.5,wordBreak:'break-word'}}>{cl.v}</span>
+                </div>
+              ))}
+              <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#374151',marginTop:10}}>{'}'}</div>
             </div>
+            {/* Metric cards */}
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-              {[{l:'Revenue Impact',v:'$21M+',s:'across 25+ markets',c:'#38BDF8'},{l:'Peak Transactions',v:'528K+',s:'daily — Jumia Group',c:'#F59E0B'},{l:'AI Signals / Day',v:'2,000+',s:'GenAI platform live',c:'#34D399'},{l:'Squads Led',v:'4',s:'cross-functional EM',c:'#818CF8'}].map(m=>(<div key={m.l} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.06)',borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',letterSpacing:'1px',textTransform:'uppercase',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:20,fontWeight:800,color:'#F1F5F9',letterSpacing:'-1px',marginBottom:2}}>{m.v}</div><div style={{fontSize:10,color:'#64748B'}}>{m.s}</div></div>))}
+              {[
+                {l:'Revenue Impact',v:'$15M+',s:'career total',c:'#38BDF8'},
+                {l:'Peak Transactions',v:'528K+',s:'daily — Jumia Group',c:'#F59E0B'},
+                {l:'Decision Latency',v:'Days→Hrs',s:'Pulsara system',c:'#34D399'},
+                {l:'Checkout CVR',v:'5.3→12.2%',s:'Lazada · Alibaba',c:'#818CF8'},
+              ].map(m=>(<div key={m.l} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.06)',borderRadius:12,padding:'14px 16px',position:'relative',overflow:'hidden'}}>
+                <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/>
+                <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#64748B',letterSpacing:'1px',textTransform:'uppercase',marginBottom:4}}>{m.l}</div>
+                <div style={{fontWeight:800,fontSize:18,color:'#F1F5F9',letterSpacing:'-0.5px',marginBottom:2,fontFamily:'Plus Jakarta Sans'}}>{m.v}</div>
+                <div style={{fontSize:10,color:'#64748B',fontFamily:'DM Sans'}}>{m.s}</div>
+              </div>))}
             </div>
           </div>)}
         </div>
+
         {mob&&(<div style={{marginTop:28,background:'#0C1120',border:'1px solid rgba(255,255,255,0.08)',borderRadius:16,padding:18}}>
-          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginBottom:12}}>rajeev.config</div>
+          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginBottom:12,letterSpacing:'0.5px'}}>rajeev.config.ts</div>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:9}}>
-            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Porto 🇵🇹 EU',c:'#38BDF8'},{l:'Revenue',v:'$21M+',c:'#F59E0B'},{l:'Markets',v:'25+ Global',c:'#818CF8'},{l:'Squads Led',v:'4 EM',c:'#F472B6'},{l:'MBA',v:'IE Biz School',c:'#38BDF8'}].map(m=>(<div key={m.l} style={{background:'rgba(255,255,255,0.03)',borderRadius:10,padding:'11px 13px',position:'relative',overflow:'hidden'}}><div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/><div style={{fontFamily:'JetBrains Mono',fontSize:8,color:'#64748B',textTransform:'uppercase',letterSpacing:'1px',marginBottom:4}}>{m.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:14,fontWeight:800,color:'#F1F5F9',lineHeight:1.2}}>{m.v}</div></div>))}
+            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Porto 🇵🇹 EU',c:'#38BDF8'},
+              {l:'Impact',v:'$15M+',c:'#F59E0B'},{l:'Markets',v:'25+ Global',c:'#818CF8'},
+              {l:'Systems',v:'Pulsara · OS',c:'#F472B6'},{l:'EU Permit',v:'✓ Active',c:'#38BDF8'}].map(m=>(<div key={m.l} style={{background:'rgba(255,255,255,0.03)',borderRadius:10,padding:'11px 13px',position:'relative',overflow:'hidden'}}>
+                <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/>
+                <div style={{fontFamily:'JetBrains Mono',fontSize:8,color:'#64748B',textTransform:'uppercase',letterSpacing:'1px',marginBottom:4}}>{m.l}</div>
+                <div style={{fontFamily:'Plus Jakarta Sans',fontSize:13,fontWeight:800,color:'#F1F5F9',lineHeight:1.2}}>{m.v}</div>
+              </div>))}
           </div>
         </div>)}
       </div>
@@ -180,89 +241,48 @@ function Hero(){
   );
 }
 
+/* ── BAND ── */
 function Band(){
-  const tags=[{icon:"🤖",l:"GenAI Builder",s:"LLM pipelines in production"},{icon:"🏗️",l:"Engineering Manager",s:"4 squads · 25+ engineers"},{icon:"🌍",l:"25+ Global Markets",s:"EU · GCC · APAC · Africa"},{icon:"💳",l:"FinTech & Payments",s:"$21M+ measurable impact"},{icon:"📐",l:"MBA + Engineering",s:"IE Business School · B.Eng"},{icon:"⚡",l:"Ships Fast",s:"0→1 GenAI platform in weeks"},{icon:"🎨",l:"UI/UX Depth",s:"Figma · design systems"},{icon:"📊",l:"Data-Driven PM",s:"SQL · Mixpanel · PostHog"}];
+  const tags=[{icon:"🧠",l:"AI Systems Builder",s:"Not just features — full systems"},{icon:"⚙️",l:"Founding Engineer",s:"Pulsara + Rescale OS"},{icon:"🌍",l:"25+ Global Markets",s:"EU · GCC · APAC · Africa"},{icon:"💳",l:"FinTech & Payments",s:"$15M+ measurable impact"},{icon:"🔄",l:"Input → Execution Loop",s:"Decision intelligence systems"},{icon:"⚡",l:"Ships Fast",s:"0→1 in weeks, not months"},{icon:"🎨",l:"UI/UX Depth",s:"Figma · design systems"},{icon:"📊",l:"Data-Driven",s:"SQL · Mixpanel · PostHog · A/B"}];
   return(<div style={{borderTop:'1px solid rgba(255,255,255,0.055)',borderBottom:'1px solid rgba(255,255,255,0.055)',background:'rgba(255,255,255,0.012)',overflow:'hidden'}}>
     <div style={{display:'flex',animation:'ticker 32s linear infinite',width:'max-content',padding:'16px 0'}}>
-      {[...tags,...tags].map((t,i)=>(<div key={i} style={{display:'inline-flex',alignItems:'center',gap:9,padding:'0 26px',borderRight:'1px solid rgba(255,255,255,0.055)',flexShrink:0}}><span style={{fontSize:14}}>{t.icon}</span><div><div style={{fontSize:11,fontWeight:700,color:'#F1F5F9',whiteSpace:'nowrap'}}>{t.l}</div><div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#64748B',whiteSpace:'nowrap'}}>{t.s}</div></div></div>))}
+      {[...tags,...tags].map((t,i)=>(<div key={i} style={{display:'inline-flex',alignItems:'center',gap:9,padding:'0 26px',borderRight:'1px solid rgba(255,255,255,0.055)',flexShrink:0}}><span style={{fontSize:14}}>{t.icon}</span><div><div style={{fontSize:11,fontWeight:600,color:'#F1F5F9',whiteSpace:'nowrap',fontFamily:'Plus Jakarta Sans'}}>{t.l}</div><div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#64748B',whiteSpace:'nowrap'}}>{t.s}</div></div></div>))}
     </div>
   </div>);
 }
 
-function Experience(){
-  const mob=useMobile();const[active,setActive]=useState(0);const e=EXP[active];useReveal();
-  return(<section id="experience" style={{padding:mob?'70px 20px':'100px 40px'}}>
+/* ── SYSTEMS ── */
+function Systems(){
+  const mob=useMobile();const[active,setActive]=useState(0);const s=SYSTEMS[active];useReveal();
+  return(<section id="systems" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
     <div style={{maxWidth:1100,margin:'0 auto'}}>
-      <SL label="career timeline" sub="10+ years of product + engineering ownership across 25+ global markets."/>
-      <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'260px 1fr',gap:mob?14:22,marginTop:36}}>
-        <div className={mob?'hscroll':''} style={mob?{display:'flex',gap:8,overflowX:'auto',paddingBottom:4}:{display:'flex',flexDirection:'column',gap:2}}>
-          {EXP.map((ex,i)=>(<button key={i} onClick={()=>setActive(i)} style={{textAlign:'left',background:'none',border:'none',cursor:'pointer',...(mob?{padding:'10px 14px',borderRadius:10,flexShrink:0,minWidth:110,borderBottom:`2px solid ${i===active?ex.color:'transparent'}`,backgroundColor:i===active?`rgba(${rgb(ex.color)},0.1)`:'rgba(255,255,255,0.03)'}:{padding:'12px 14px',borderRadius:10,borderLeft:`3px solid ${i===active?ex.color:'transparent'}`,backgroundColor:i===active?`rgba(${rgb(ex.color)},0.07)`:'transparent'}),transition:'all 0.2s'}}>
-            <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:i===active?ex.color:'#64748B',letterSpacing:'0.8px',marginBottom:3,whiteSpace:'nowrap'}}>{mob?ex.period.split('—')[0].trim()+'…':ex.period}</div>
-            <div style={{fontSize:mob?10.5:12,fontWeight:700,color:i===active?'#F1F5F9':'#94A3B8',lineHeight:1.3,whiteSpace:mob?'nowrap':'normal'}}>{mob?ex.company.split('·')[0].trim():ex.company}</div>
-            {!mob&&<div style={{fontSize:10,color:'#64748B',marginTop:2}}>{ex.type}</div>}
+      <SL label="what i'm building" sub="Three interconnected systems — not tools, not features. A full production stack for AI-powered decision-making and content."/>
+      <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'280px 1fr',gap:mob?14:22,marginTop:36}}>
+        <div style={{display:'flex',flexDirection:mob?'row':'column',gap:8,overflowX:mob?'auto':'visible'}} className={mob?'hscroll':''}>
+          {SYSTEMS.map((sys,i)=>(<button key={i} onClick={()=>setActive(i)} style={{textAlign:'left',background:'none',border:'none',cursor:'pointer',padding:mob?'12px 16px':'14px 16px',borderRadius:12,flexShrink:mob?0:1,minWidth:mob?130:0,borderLeft:mob?'none':`3px solid ${i===active?sys.color:'transparent'}`,borderBottom:mob?`2px solid ${i===active?sys.color:'transparent'}`:'none',backgroundColor:i===active?`rgba(${rgb(sys.color)},0.08)`:'rgba(255,255,255,0.02)',transition:'all 0.2s'}}>
+            <div style={{fontSize:18,marginBottom:6}}>{sys.icon}</div>
+            <div style={{fontWeight:700,fontSize:13,color:i===active?'#F1F5F9':'#94A3B8',marginBottom:3,fontFamily:'Plus Jakarta Sans'}}>{sys.name}</div>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:i===active?sys.color:'#64748B',whiteSpace:mob?'nowrap':'normal'}}>{mob?sys.sub.split(' ').slice(0,2).join(' ')+'…':sys.sub}</div>
           </button>))}
         </div>
         <div key={active} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?22:36,position:'relative',overflow:'hidden',animation:'fadeIn 0.25s ease'}}>
-          <div style={{position:'absolute',top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${e.color},transparent)`}}/>
-          <div style={{display:'inline-block',padding:'4px 11px',borderRadius:20,background:`rgba(${rgb(e.color)},0.1)`,border:`1px solid rgba(${rgb(e.color)},0.22)`,fontSize:10,fontWeight:700,color:e.color,letterSpacing:'1px',textTransform:'uppercase',marginBottom:10}}>{e.type}</div>
-          <h3 style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?17:22,fontWeight:800,letterSpacing:'-0.5px',color:'#F1F5F9',marginBottom:8,lineHeight:1.2}}>{e.role}</h3>
-          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:12}}><span style={{fontSize:12,color:e.color,fontWeight:700}}>{e.company}</span><span style={{fontSize:11,color:'#64748B'}}>📍 {e.loc}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B'}}>{e.period}</span></div>
-          <p style={{fontSize:mob?12.5:13.5,lineHeight:1.78,color:'#94A3B8',marginBottom:14}}>{e.desc}</p>
-          <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:14}}>
-            {e.bullets.map(b=>(<div key={b} style={{display:'flex',gap:10,alignItems:'flex-start'}}><div style={{width:5,height:5,borderRadius:'50%',background:e.color,flexShrink:0,marginTop:7,boxShadow:`0 0 6px ${e.color}`}}/><span style={{fontSize:mob?12:13,color:'#94A3B8',lineHeight:1.65}}>{b}</span></div>))}
-          </div>
-          <div style={{display:'flex',gap:7,flexWrap:'wrap',marginBottom:14}}>{e.metrics.map(m=>(<div key={m} style={{padding:'5px 11px',borderRadius:7,background:`rgba(${rgb(e.color)},0.09)`,border:`1px solid rgba(${rgb(e.color)},0.18)`,fontSize:11,fontWeight:700,color:e.color}}>{m}</div>))}</div>
-          <div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'1.5px',color:'#64748B',textTransform:'uppercase',marginBottom:7}}>Stack</div>
-          <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>{e.stack.map(s=>(<span key={s} style={{padding:'3px 9px',borderRadius:6,background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.07)',fontSize:10.5,color:'#64748B',fontFamily:'JetBrains Mono'}}>{s}</span>))}</div>
-        </div>
-      </div>
-    </div>
-  </section>);
-}
-function Thinking(){
-  const mob=useMobile();const tab=useMobile(1024);useReveal();
-  const cols=mob?'1fr':(tab?'repeat(2,1fr)':'repeat(3,1fr)');
-  const codeLines=[
-    [{t:"# GenAI Signal Pipeline",c:"#4B5563"}],
-    [{t:"async ",c:"#C084FC"},{t:"def ",c:"#818CF8"},{t:"process",c:"#F59E0B"},{t:"(raw):",c:"#94A3B8"}],
-    [{t:'  """2K+ signals · ~70% noise ↓"""',c:"#4B5563"}],
-    [],
-    [{t:"  ranked = [s for s in raw",c:"#94A3B8"}],
-    [{t:"    if ",c:"#C084FC"},{t:"score",c:"#F59E0B"},{t:"(s) > ",c:"#94A3B8"},{t:"0.65",c:"#F59E0B"},{t:"]",c:"#94A3B8"}],
-    [],
-    [{t:"  resp = client.messages.",c:"#94A3B8"},{t:"create",c:"#F59E0B"},{t:"(",c:"#64748B"}],
-    [{t:'    model=',c:"#64748B"},{t:'"claude-sonnet-4-5"',c:"#34D399"}],
-    [{t:"    messages=build_ctx(ranked)",c:"#64748B"}],
-    [{t:"  )",c:"#64748B"}],
-    [],
-    [{t:"  return ",c:"#C084FC"},{t:"extract_insights(resp)",c:"#F59E0B"}],
-  ];
-  return(<section id="thinking" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
-    <div style={{maxWidth:1100,margin:'0 auto'}}>
-      <SL label="product OS" sub="Mental models and frameworks I apply across every product — from discovery to engineering collaboration."/>
-      <div style={{display:'grid',gridTemplateColumns:cols,gap:12,marginTop:36,marginBottom:22}}>
-        {PRINCIPLES.map(p=>(<div key={p.label} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?18:22,transition:'all 0.25s',cursor:'default',position:'relative',overflow:'hidden'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(p.color)},0.32)`;e.currentTarget.style.transform='translateY(-4px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
-          <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${p.color},transparent)`}}/>
-          <div style={{fontSize:19,marginBottom:9}}>{p.icon}</div>
-          <div style={{fontFamily:'JetBrains Mono',fontSize:9.5,color:p.color,letterSpacing:'2px',textTransform:'uppercase',marginBottom:5}}>{p.label}</div>
-          <div style={{fontSize:11.5,color:'#64748B',lineHeight:1.6,marginBottom:11,fontStyle:'italic'}}>{p.desc}</div>
-          <div style={{display:'flex',flexWrap:'wrap',gap:5}}>{p.items.map(it=>(<span key={it} style={{padding:'3px 9px',borderRadius:5,background:`rgba(${rgb(p.color)},0.07)`,border:`1px solid rgba(${rgb(p.color)},0.14)`,fontSize:10.5,color:'#94A3B8'}}>{it}</span>))}</div>
-        </div>))}
-      </div>
-      <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,overflow:'hidden'}}>
-        <div style={{borderBottom:'1px solid rgba(255,255,255,0.06)',padding:'12px 18px',display:'flex',alignItems:'center',gap:7,background:'rgba(255,255,255,0.02)'}}>
-          {['#FF5F57','#FFBD2E','#28C840'].map(c=><div key={c} style={{width:10,height:10,borderRadius:'50%',background:c,opacity:0.7}}/>)}
-          <span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',marginLeft:5}}>pipeline.py — GenAI Signal Processing</span>
-        </div>
-        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 1fr'}}>
-          <div className={mob?'hscroll':''} style={{padding:mob?'18px 16px':'22px 26px',borderRight:mob?'none':'1px solid rgba(255,255,255,0.06)',borderBottom:mob?'1px solid rgba(255,255,255,0.06)':'none',overflowX:mob?'auto':'visible'}}>
-            <div style={{fontFamily:'JetBrains Mono',fontSize:11,lineHeight:1.9,minWidth:mob?240:0}}>
-              {codeLines.map((line,li)=>(<div key={li} style={{display:'flex',gap:10,minHeight:'1.9em'}}><span style={{color:'#374151',minWidth:14,textAlign:'right',fontSize:9,paddingTop:2,userSelect:'none',flexShrink:0}}>{li+1}</span><span>{line.map((seg,si)=><span key={si} style={{color:seg.c,whiteSpace:'pre'}}>{seg.t}</span>)}</span></div>))}
+          <div style={{position:'absolute',top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${s.color},transparent)`}}/>
+          <div style={{display:'flex',alignItems:'flex-start',gap:14,marginBottom:14,flexWrap:'wrap'}}>
+            <span style={{fontSize:28}}>{s.icon}</span>
+            <div>
+              <h3 style={{fontSize:mob?18:24,fontWeight:800,color:'#F1F5F9',letterSpacing:'-0.5px',marginBottom:4}}>{s.name}</h3>
+              <div style={{fontFamily:'JetBrains Mono',fontSize:10,color:s.color,letterSpacing:'1px',textTransform:'uppercase'}}>{s.sub}</div>
             </div>
           </div>
-          <div style={{padding:mob?'18px 16px':'22px 26px'}}>
-            <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:14}}>Engineering Depth</div>
-            {[{l:"System Design",items:["Microservices","Event-Driven Arch","API-First Design","Data Modelling"],c:"#38BDF8"},{l:"Code Fluency",items:["Python · SQL","REST APIs","LLM Evals","CI/CD Awareness"],c:"#34D399"},{l:"AI Architecture",items:["RAG Pipelines","Multi-Agent Design","Prompt Engineering","Vector DBs"],c:"#F59E0B"}].map(block=>(<div key={block.l} style={{marginBottom:13}}><div style={{fontSize:10,fontWeight:700,color:block.c,letterSpacing:'1px',marginBottom:6}}>{block.l}</div><div style={{display:'flex',flexWrap:'wrap',gap:5}}>{block.items.map(it=>(<span key={it} style={{padding:'3px 9px',borderRadius:5,background:`rgba(${rgb(block.c)},0.07)`,border:`1px solid rgba(${rgb(block.c)},0.15)`,fontSize:10.5,color:'#94A3B8',fontFamily:'JetBrains Mono'}}>{it}</span>))}</div></div>))}
+          <div style={{padding:'12px 16px',background:`rgba(${rgb(s.color)},0.06)`,border:`1px solid rgba(${rgb(s.color)},0.15)`,borderRadius:10,marginBottom:18}}>
+            <p style={{fontSize:mob?13:14,color:'#F1F5F9',fontWeight:600,fontStyle:'italic',margin:0}}>"{s.tagline}"</p>
+          </div>
+          <p style={{fontSize:mob?13:14,lineHeight:1.78,color:'#94A3B8',marginBottom:18}}>{s.desc}</p>
+          <div style={{display:'flex',flexDirection:'column',gap:7,marginBottom:20}}>
+            {s.bullets.map(b=>(<div key={b} style={{display:'flex',gap:10,alignItems:'flex-start'}}><div style={{width:5,height:5,borderRadius:'50%',background:s.color,flexShrink:0,marginTop:7,boxShadow:`0 0 6px ${s.color}`}}/><span style={{fontSize:mob?12.5:13.5,color:'#94A3B8',lineHeight:1.65}}>{b}</span></div>))}
+          </div>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+            {s.metrics.map(m=>(<div key={m} style={{padding:'6px 13px',borderRadius:8,background:`rgba(${rgb(s.color)},0.09)`,border:`1px solid rgba(${rgb(s.color)},0.2)`,fontSize:11.5,fontWeight:700,color:s.color,fontFamily:'Plus Jakarta Sans'}}>{m}</div>))}
           </div>
         </div>
       </div>
@@ -270,6 +290,108 @@ function Thinking(){
   </section>);
 }
 
+/* ── THINKING ── */
+function Thinking(){
+  const mob=useMobile();const tab=useMobile(1024);useReveal();
+  const cols=mob?'1fr':(tab?'repeat(2,1fr)':'repeat(3,1fr)');
+  const loop=[
+    {step:"Input",desc:"Signals, data, user behaviour, AI outputs",color:"#38BDF8",n:"01"},
+    {step:"Processing",desc:"LLMs, scoring models, rule engines",color:"#818CF8",n:"02"},
+    {step:"Decision",desc:"Operator-confirmed or fully automated",color:"#F59E0B",n:"03"},
+    {step:"Execution",desc:"Content, payments, workflows, comms",color:"#34D399",n:"04"},
+    {step:"Feedback",desc:"Metrics, iteration, model learning",color:"#F472B6",n:"05"},
+  ];
+  const domains=["Fintech systems","Marketplaces","Growth platforms","AI-native products"];
+  return(<section id="thinking" style={{padding:mob?'70px 20px':'100px 40px'}}>
+    <div style={{maxWidth:1100,margin:'0 auto'}}>
+      <SL label="how i think" sub="I don't build features. I build systems. Every product I design follows one loop."/>
+      {/* System loop visual */}
+      <div className="rv" style={{marginTop:36,marginBottom:24,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?'24px 20px':'32px 40px'}}>
+        <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:24}}>The System Loop</div>
+        <div style={{display:'flex',flexDirection:mob?'column':'row',alignItems:'center',gap:mob?8:0}}>
+          {loop.map((item,i)=>(<React.Fragment key={item.step}>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:8,flex:mob?'none':1}}>
+              <div style={{width:mob?48:56,height:mob?48:56,borderRadius:14,background:`rgba(${rgb(item.color)},0.1)`,border:`1px solid rgba(${rgb(item.color)},0.3)`,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+                <span style={{fontFamily:'JetBrains Mono',fontSize:11,color:item.color,fontWeight:700}}>{item.n}</span>
+              </div>
+              <div style={{textAlign:'center'}}>
+                <div style={{fontWeight:700,fontSize:mob?13:14,color:'#F1F5F9',marginBottom:3,fontFamily:'Plus Jakarta Sans'}}>{item.step}</div>
+                <div style={{fontSize:mob?10:10.5,color:'#64748B',lineHeight:1.5,fontFamily:'DM Sans',maxWidth:mob?200:110}}>{item.desc}</div>
+              </div>
+            </div>
+            {i<loop.length-1&&(<div style={{color:'rgba(56,189,248,0.3)',fontSize:mob?16:20,flexShrink:0,padding:mob?'0':'0 8px',transform:mob?'rotate(90deg)':'none'}}>→</div>)}
+          </React.Fragment>))}
+        </div>
+        <div style={{marginTop:24,padding:'14px 18px',background:'rgba(56,189,248,0.04)',borderRadius:10,border:'1px solid rgba(56,189,248,0.1)'}}>
+          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'1.5px',textTransform:'uppercase',marginBottom:8}}>This model has worked across</div>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
+            {domains.map(d=>(<span key={d} style={{padding:'4px 12px',borderRadius:6,background:'rgba(56,189,248,0.07)',border:'1px solid rgba(56,189,248,0.15)',fontSize:11.5,color:'#38BDF8',fontFamily:'Plus Jakarta Sans',fontWeight:500}}>{d}</span>))}
+          </div>
+        </div>
+      </div>
+      {/* What makes me different */}
+      <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?'24px 20px':'32px 40px',marginBottom:24}}>
+        <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#F59E0B',letterSpacing:'2px',textTransform:'uppercase',marginBottom:20}}>What Makes Me Different</div>
+        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'repeat(3,1fr)',gap:16}}>
+          {[{title:"Most PMs",items:["Define features","Write PRDs","Present roadmaps"],dim:true},{title:"Some PMs",items:["Build prototypes","Run experiments","Own metrics"],dim:true},{title:"I Do",items:["Build production systems","Design LLM pipelines","Ship infrastructure"],dim:false,c:"#38BDF8"}].map(col=>(<div key={col.title} style={{padding:'18px 20px',borderRadius:12,background:col.dim?'rgba(255,255,255,0.02)':' rgba(56,189,248,0.06)',border:`1px solid ${col.dim?'rgba(255,255,255,0.06)':'rgba(56,189,248,0.2)'}`}}>
+            <div style={{fontWeight:700,fontSize:13,color:col.dim?'#64748B':'#38BDF8',marginBottom:12,fontFamily:'Plus Jakarta Sans'}}>{col.title}</div>
+            {col.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}><div style={{width:4,height:4,borderRadius:'50%',background:col.dim?'#374151':'#38BDF8',flexShrink:0}}/><span style={{fontSize:13,color:col.dim?'#4B5563':'#94A3B8',fontFamily:'DM Sans'}}>{it}</span></div>))}
+          </div>))}
+        </div>
+      </div>
+      {/* Technical depth */}
+      <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?'24px 20px':'32px 40px'}}>
+        <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#34D399',letterSpacing:'2px',textTransform:'uppercase',marginBottom:20}}>Technical Depth</div>
+        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'repeat(2,1fr)',gap:16}}>
+          {[
+            {l:"LLM Systems",items:["Claude, GPT, multi-model orchestration","Prompt versioning + eval frameworks","RAG pipelines, agent flows","Signal scoring + decision routing"],c:"#38BDF8"},
+            {l:"Backend & Automation",items:["Python, APIs, data pipelines","n8n workflow orchestration","Event-driven architectures","CI/CD, platform thinking"],c:"#34D399"},
+            {l:"Product & Analytics",items:["Mixpanel, Amplitude, GA4, PostHog","SQL, BigQuery, cohort analysis","A/B testing, experiment design","OKR frameworks, KPI modelling"],c:"#F59E0B"},
+            {l:"Platform Domains",items:["Payments, wallets, PCI-DSS","Marketplace systems","SaaS architecture","Fintech infrastructure"],c:"#818CF8"},
+          ].map(block=>(<div key={block.l} style={{padding:'16px 18px',borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(block.c)},0.1)`}}>
+            <div style={{fontWeight:700,fontSize:12,color:block.c,marginBottom:10,fontFamily:'Plus Jakarta Sans',letterSpacing:'0.3px'}}>{block.l}</div>
+            {block.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'flex-start',marginBottom:6}}><div style={{width:4,height:4,borderRadius:'50%',background:block.c,flexShrink:0,marginTop:6,opacity:0.7}}/><span style={{fontSize:12.5,color:'#94A3B8',lineHeight:1.5,fontFamily:'DM Sans'}}>{it}</span></div>))}
+          </div>))}
+        </div>
+      </div>
+    </div>
+  </section>);
+}
+
+/* ── EXPERIENCE ── */
+function Experience(){
+  const mob=useMobile();const[active,setActive]=useState(0);const e=EXP[active];useReveal();
+  return(<section id="experience" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
+    <div style={{maxWidth:1100,margin:'0 auto'}}>
+      <SL label="career impact" sub="10+ years of product + engineering ownership across 25+ global markets. Built to scale, shipped to measure."/>
+      <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'260px 1fr',gap:mob?14:22,marginTop:36}}>
+        <div className={mob?'hscroll':''} style={mob?{display:'flex',gap:8,overflowX:'auto',paddingBottom:4}:{display:'flex',flexDirection:'column',gap:2}}>
+          {EXP.map((ex,i)=>(<button key={i} onClick={()=>setActive(i)} style={{textAlign:'left',background:'none',border:'none',cursor:'pointer',...(mob?{padding:'10px 14px',borderRadius:10,flexShrink:0,minWidth:110,borderBottom:`2px solid ${i===active?ex.color:'transparent'}`,backgroundColor:i===active?`rgba(${rgb(ex.color)},0.1)`:'rgba(255,255,255,0.03)'}:{padding:'12px 14px',borderRadius:10,borderLeft:`3px solid ${i===active?ex.color:'transparent'}`,backgroundColor:i===active?`rgba(${rgb(ex.color)},0.07)`:'transparent'}),transition:'all 0.2s'}}>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:i===active?ex.color:'#64748B',letterSpacing:'0.8px',marginBottom:3,whiteSpace:'nowrap'}}>{mob?ex.period.split('—')[0].trim()+'…':ex.period}</div>
+            <div style={{fontSize:mob?10.5:12,fontWeight:700,color:i===active?'#F1F5F9':'#94A3B8',lineHeight:1.3,whiteSpace:mob?'nowrap':'normal',fontFamily:'Plus Jakarta Sans'}}>{mob?ex.co.split('·')[0].trim():ex.co}</div>
+            {!mob&&<div style={{fontFamily:'JetBrains Mono',fontSize:9.5,color:'#64748B',marginTop:2}}>{ex.type}</div>}
+          </button>))}
+        </div>
+        <div key={active} style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?22:36,position:'relative',overflow:'hidden',animation:'fadeIn 0.25s ease'}}>
+          <div style={{position:'absolute',top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${e.color},transparent)`}}/>
+          <div style={{display:'flex',gap:10,flexWrap:'wrap',alignItems:'center',marginBottom:10}}>
+            <div style={{display:'inline-block',padding:'4px 11px',borderRadius:20,background:`rgba(${rgb(e.color)},0.1)`,border:`1px solid rgba(${rgb(e.color)},0.22)`,fontSize:10,fontWeight:700,color:e.color,letterSpacing:'1px',textTransform:'uppercase',fontFamily:'Plus Jakarta Sans'}}>{e.type}</div>
+            {e.badge&&<div style={{display:'inline-block',padding:'4px 11px',borderRadius:20,background:'rgba(52,211,153,0.1)',border:'1px solid rgba(52,211,153,0.22)',fontSize:10,fontWeight:700,color:'#34D399',letterSpacing:'1px',textTransform:'uppercase',fontFamily:'Plus Jakarta Sans'}}>{e.badge}</div>}
+          </div>
+          <h3 style={{fontSize:mob?17:22,fontWeight:800,letterSpacing:'-0.5px',color:'#F1F5F9',marginBottom:8,lineHeight:1.2}}>{e.role}</h3>
+          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:12,alignItems:'center'}}><span style={{fontSize:12,color:e.color,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>{e.co}</span><span style={{fontSize:11,color:'#64748B',fontFamily:'DM Sans'}}>📍 {e.loc}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B'}}>{e.period}</span></div>
+          <p style={{fontSize:mob?12.5:13.5,lineHeight:1.78,color:'#94A3B8',marginBottom:14,fontFamily:'DM Sans'}}>{e.desc}</p>
+          <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:14}}>
+            {e.bullets.map(b=>(<div key={b} style={{display:'flex',gap:10,alignItems:'flex-start'}}><div style={{width:5,height:5,borderRadius:'50%',background:e.color,flexShrink:0,marginTop:7,boxShadow:`0 0 6px ${e.color}`}}/><span style={{fontSize:mob?12:13,color:'#94A3B8',lineHeight:1.65,fontFamily:'DM Sans'}}>{b}</span></div>))}
+          </div>
+          <div style={{display:'flex',gap:7,flexWrap:'wrap'}}>{e.metrics.map(m=>(<div key={m} style={{padding:'5px 11px',borderRadius:7,background:`rgba(${rgb(e.color)},0.09)`,border:`1px solid rgba(${rgb(e.color)},0.18)`,fontSize:11,fontWeight:700,color:e.color,fontFamily:'Plus Jakarta Sans'}}>{m}</div>))}</div>
+        </div>
+      </div>
+    </div>
+  </section>);
+}
+
+/* ── SKILLS ── */
 function Skills(){
   const mob=useMobile();const tab=useMobile(1024);useReveal();
   const cols=mob?'1fr':(tab?'repeat(2,1fr)':'repeat(3,1fr)');
@@ -280,60 +402,36 @@ function Skills(){
         {SKILLS.map(sk=>(<div key={sk.cat} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?18:24,transition:'all 0.25s',cursor:'default',position:'relative',overflow:'hidden'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(sk.color)},0.3)`;e.currentTarget.style.transform='translateY(-3px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
           <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${sk.color},transparent)`}}/>
           <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:13}}><span style={{fontSize:16}}>{sk.icon}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9.5,letterSpacing:'2px',color:sk.color,textTransform:'uppercase'}}>{sk.cat}</span></div>
-          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>{sk.items.map(it=>(<span key={it} style={{padding:'4px 10px',borderRadius:6,background:`rgba(${rgb(sk.color)},0.07)`,border:`1px solid rgba(${rgb(sk.color)},0.14)`,fontSize:11,color:'#94A3B8',fontWeight:500}}>{it}</span>))}</div>
+          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>{sk.items.map(it=>(<span key={it} style={{padding:'4px 10px',borderRadius:6,background:`rgba(${rgb(sk.color)},0.07)`,border:`1px solid rgba(${rgb(sk.color)},0.14)`,fontSize:11,color:'#94A3B8',fontWeight:500,fontFamily:'DM Sans'}}>{it}</span>))}</div>
         </div>))}
       </div>
       <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?'22px 18px':'28px 32px'}}>
         <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:16}}><div style={{width:7,height:7,borderRadius:'50%',background:'#38BDF8',boxShadow:'0 0 10px #38BDF8',animation:'glow 2s ease-in-out infinite',flexShrink:0}}/><span style={{fontFamily:'JetBrains Mono',fontSize:9.5,letterSpacing:'2px',color:'#38BDF8',textTransform:'uppercase'}}>Daily Stack · Tools in Production</span></div>
-        <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
-          {TOOLS.map(t=>(<div key={t.n} style={{padding:'7px 14px',borderRadius:8,fontFamily:'JetBrains Mono',background:t.t===1?'rgba(56,189,248,0.1)':'rgba(255,255,255,0.04)',border:t.t===1?'1px solid rgba(56,189,248,0.25)':'1px solid rgba(255,255,255,0.07)',fontSize:mob?11:12,color:t.t===1?'#38BDF8':'#64748B',fontWeight:t.t===1?600:400,transition:'all 0.2s',cursor:'default'}}>{t.n}</div>))}
-        </div>
+        <div style={{display:'flex',flexWrap:'wrap',gap:8}}>{TOOLS.map(t=>(<div key={t.n} style={{padding:'7px 14px',borderRadius:8,fontFamily:'JetBrains Mono',background:t.t===1?'rgba(56,189,248,0.1)':'rgba(255,255,255,0.04)',border:t.t===1?'1px solid rgba(56,189,248,0.25)':'1px solid rgba(255,255,255,0.07)',fontSize:mob?11:12,color:t.t===1?'#38BDF8':'#64748B',fontWeight:t.t===1?600:400,transition:'all 0.2s',cursor:'default'}}>{t.n}</div>))}</div>
       </div>
     </div>
   </section>);
 }
 
-function Lab(){
-  const mob=useMobile();useReveal();
-  const trading=[{icon:'₿',l:'Markets',v:'Crypto — BTC · ETH · Altcoins',s:'Spot & derivative structures',c:'#F59E0B'},{icon:'⚡',l:'Style',v:'Systematic / Rule-Based',s:'Strategy defined pre-entry · Backtested · Risk-adjusted',c:'#38BDF8'},{icon:'📊',l:'Platforms',v:'TradingView · Pine Script',s:'Strategy dev · Backtesting · Charting',c:'#34D399'},{icon:'📐',l:'Metrics',v:'Sharpe · Drawdown · Win Rate',s:'Numbers first. No gut calls.',c:'#818CF8'}];
-  const mba=['Finance & Investment','AI in Fintech','Blockchain & DeFi','DCF / LBO Modelling','M&A Strategy','Corporate Finance','HBS Case Simulator','Bloomberg BMC'];
-  const ed=[{deg:'International MBA',inst:'IE Business School · Porto Business School',date:'2024–2025',detail:'FT Global #21 · GPA 17/20 · 50% Merit Scholarship',c:'#38BDF8'},{deg:'B.Eng — Electronics & Communication',inst:'Vinayaka Mission University',date:'2007–2011',detail:'First-Class Honours',c:'#818CF8'}];
-  return(<section id="lab" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
-    <div style={{maxWidth:1100,margin:'0 auto'}}>
-      <SL label="lab & quant" sub="Systematic crypto trading + MBA-level financial depth — the quantitative edge underneath the product instinct."/>
-      <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'repeat(2,1fr)',gap:12,marginTop:36}}>
-        {trading.map(it=>(<div key={it.l} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?18:24,display:'flex',gap:16,transition:'all 0.22s',cursor:'default'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(it.c)},0.3)`;e.currentTarget.style.transform='translateY(-3px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
-          <div style={{fontSize:22,flexShrink:0,marginTop:2}}>{it.icon}</div>
-          <div><div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'1.5px',color:it.c,textTransform:'uppercase',marginBottom:5}}>{it.l}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?14:16,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{it.v}</div><div style={{fontSize:11.5,color:'#64748B',lineHeight:1.6}}>{it.s}</div></div>
-        </div>))}
-      </div>
-      <div className="rv" style={{marginTop:12,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'18px 18px':'22px 26px'}}>
-        <div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'2px',color:'#38BDF8',textTransform:'uppercase',marginBottom:12}}>MBA Academic Depth</div>
-        <div style={{display:'flex',flexWrap:'wrap',gap:7}}>{mba.map(m=>(<span key={m} style={{padding:'4px 11px',borderRadius:6,background:'rgba(56,189,248,0.07)',border:'1px solid rgba(56,189,248,0.15)',fontSize:mob?11:11.5,color:'#38BDF8',fontWeight:500}}>{m}</span>))}</div>
-      </div>
-      <div className="rv" style={{marginTop:12,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'18px 18px':'22px 26px'}}>
-        <div style={{fontFamily:'JetBrains Mono',fontSize:9,letterSpacing:'2px',color:'#F59E0B',textTransform:'uppercase',marginBottom:14}}>Education</div>
-        <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 1fr',gap:12}}>
-          {ed.map(e=>(<div key={e.deg} style={{padding:mob?14:18,borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(e.c)},0.12)`}}><div style={{fontFamily:'JetBrains Mono',fontSize:9,color:e.c,letterSpacing:'1px',marginBottom:6}}>{e.date}</div><div style={{fontFamily:'Plus Jakarta Sans',fontSize:mob?13:14,fontWeight:700,color:'#F1F5F9',marginBottom:4,lineHeight:1.3}}>{e.deg}</div><div style={{fontSize:11.5,color:'#64748B',marginBottom:6}}>{e.inst}</div><div style={{fontSize:11,color:e.c,fontWeight:600}}>{e.detail}</div></div>))}
-        </div>
-      </div>
-    </div>
-  </section>);
-}
-
+/* ── CONTACT ── */
 function Contact(){
   const mob=useMobile();
-  return(<section id="contact" style={{padding:mob?'70px 20px':'100px 40px'}}>
+  return(<section id="contact" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
     <div style={{maxWidth:1100,margin:'0 auto'}}>
       <div style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:24,padding:mob?'44px 24px':'64px 48px',position:'relative',overflow:'hidden',textAlign:'center'}}>
         <div style={{position:'absolute',top:-120,left:'50%',transform:'translateX(-50%)',width:600,height:600,borderRadius:'50%',background:'radial-gradient(circle,rgba(56,189,248,0.045) 0%,transparent 70%)',pointerEvents:'none'}}/>
-        <div style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'2.5px',color:'#38BDF8',textTransform:'uppercase',marginBottom:16}}>// ready_to_ship</div>
-        <h2 style={{fontFamily:'Plus Jakarta Sans',fontWeight:800,fontSize:mob?'clamp(28px,8vw,40px)':'clamp(34px,4.5vw,52px)',letterSpacing:'-2px',color:'#F1F5F9',marginBottom:14,lineHeight:1.1}}>
-          Let's build<br/><span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>something great.</span>
+        <div style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'2.5px',color:'#38BDF8',textTransform:'uppercase',marginBottom:16}}>// if_you_re_building_ai</div>
+        <h2 style={{fontWeight:800,fontSize:mob?'clamp(26px,7vw,38px)':'clamp(32px,4vw,48px)',letterSpacing:'-1.5px',color:'#F1F5F9',marginBottom:14,lineHeight:1.15}}>
+          If you're building AI products,<br/>
+          <span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>platforms, or systems —</span>
         </h2>
-        <p style={{fontSize:mob?13.5:14.5,color:'#64748B',maxWidth:420,margin:'0 auto 32px',lineHeight:1.75}}>Available immediately. Remote-first. EU work authorised.<br/>I work best where ownership matters and speed counts.</p>
+        <p style={{fontSize:mob?15:17,color:'#38BDF8',fontWeight:700,marginBottom:8,fontFamily:'Plus Jakarta Sans'}}>we should talk.</p>
+        <p style={{fontSize:mob?13:14.5,color:'#64748B',maxWidth:440,margin:'0 auto 36px',lineHeight:1.75,fontFamily:'DM Sans'}}>
+          Available immediately. Remote-first. EU residence permit.<br/>
+          Open to relocation. I work best where ownership matters and speed counts.
+        </p>
         <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
-          {[{h:"mailto:rajeevkmba2025@gmail.com",l:mob?"Email Me":"rajeevkmba2025@gmail.com",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn",p:false},{h:"https://github.com/rajeevcode",l:"GitHub",p:false}].map(lk=>(<a key={lk.l} href={lk.h} target={lk.p?undefined:"_blank"} style={{padding:lk.p?'13px 24px':'12px 20px',borderRadius:10,textDecoration:'none',fontSize:12.5,fontWeight:700,background:lk.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.05)',color:lk.p?'#fff':'#94A3B8',border:lk.p?'none':'1px solid rgba(255,255,255,0.1)',transition:'all 0.2s'}}>{lk.l}</a>))}
+          {[{h:"mailto:rajeevkmba2025@gmail.com",l:mob?"Email Me":"rajeevkmba2025@gmail.com",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn",p:false},{h:"https://github.com/rajeevcode",l:"GitHub",p:false},{h:"https://medium.com/@rajeev25",l:"Medium",p:false}].map(lk=>(<a key={lk.l} href={lk.h} target={lk.p?undefined:"_blank"} style={{padding:lk.p?'13px 24px':'12px 20px',borderRadius:10,textDecoration:'none',fontSize:12.5,fontWeight:700,background:lk.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.05)',color:lk.p?'#fff':'#94A3B8',border:lk.p?'none':'1px solid rgba(255,255,255,0.1)',transition:'all 0.2s',fontFamily:'Plus Jakarta Sans'}}>{lk.l}</a>))}
         </div>
       </div>
     </div>
@@ -344,7 +442,7 @@ function Footer(){
   const mob=useMobile();
   return(<footer style={{borderTop:'1px solid rgba(255,255,255,0.06)',padding:mob?'20px':'22px 40px',display:'flex',flexDirection:mob?'column':'row',justifyContent:'space-between',alignItems:mob?'flex-start':'center',gap:8}}>
     <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>© 2026 Rajeev Kumar · Porto, Portugal</span>
-    <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>Available · EU Work Auth · Remote-first</span>
+    <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>AI Systems Builder · EU Work Auth · Remote-first</span>
   </footer>);
 }
 
@@ -357,12 +455,12 @@ function App(){
     window.addEventListener('mousemove',h,{passive:true});return()=>window.removeEventListener('mousemove',h);
   },[mob]);
   useEffect(()=>{
-    const sections=['about','experience','thinking','skills','lab','contact'];
+    const sections=['about','systems','thinking','experience','skills','contact'];
     const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting)setActive(en.target.id);});},{threshold:0.2});
     sections.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
     return()=>obs.disconnect();
   },[]);
-  return(<div><Nav active={active}/><Hero/><Band/><Experience/><Thinking/><Skills/><Lab/><Contact/><Footer/></div>);
+  return(<div><Nav active={active}/><Hero/><Band/><Systems/><Thinking/><Experience/><Skills/><Contact/><Footer/></div>);
 }
 ReactDOM.render(<App/>,document.getElementById('root'));
 </script>
