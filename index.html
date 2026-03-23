@@ -6,7 +6,7 @@
 <title>Rajeev Kumar — AI Systems Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
@@ -18,7 +18,7 @@
   --blue:#38BDF8;--gold:#F59E0B;--green:#34D399;--purple:#818CF8;--pink:#F472B6;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:15px;line-height:1.7}
+body{background:var(--bg);color:var(--t);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:15px;line-height:1.75}
 h1,h2,h3,h4,h5,h6{font-family:'Plus Jakarta Sans',sans-serif;font-feature-settings:'cv02','cv03','cv04'}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -50,7 +50,7 @@ function useReveal(){useEffect(()=>{const els=document.querySelectorAll('.rv');c
 /* ── DATA ── */
 const SYSTEMS=[
   {id:"pulsara",name:"Pulsara",sub:"AI Decision Intelligence System",color:"#38BDF8",icon:"🧠",
-   tagline:"Where AI outputs meet real product execution.",
+   tagline:"This is not a dashboard. This is the decision layer for AI-native companies.",
    desc:"A production system that compresses signals, AI outputs, and operator decisions into a single execution layer. This is the command layer — not a tool, a system.",
    bullets:["100–300 AI outputs/day flowing through decision pipelines","Signal → scoring → decision → execution loop","Reduced decision latency from days → hours","Internal by design — protects competitive intelligence"],
    metrics:["100–300 outputs/day","Days → Hours latency","Signal → Execution","0 manual routing"]},
@@ -72,7 +72,7 @@ const EXP=[
    bullets:["Designed Pulsara decision intelligence system — 100–300 AI outputs/day","Built Rescale OS multi-model content pipeline: 60–70% faster production","0→1 shipped in weeks with founding engineer ownership","LLM eval framework, feedback loops, and prompt versioning from day one"],
    metrics:["0→1 in weeks","60–70% faster","Days→Hours","Multi-model"]},
   {period:"2023 — 2024",role:"Senior Product Manager",co:"HafH · Kabuk Style Inc.",loc:"Remote · 100+ Markets",color:"#F59E0B",type:"AI & FinTech",
-   desc:"Owned full product direction for a global travel-fintech platform. PCI-DSS digital wallet, ML pricing engine, AI content automation. Led 4 distributed squads across EU, JP, IN, PK.",
+   desc:"Architected full product direction for a global travel-fintech platform. PCI-DSS digital wallet, ML pricing engine, AI content automation. Led 4 distributed squads across EU, JP, IN, PK.",
    bullets:["4 squads across 4 timezones — full EM ownership","PCI-DSS digital wallet: 40% adoption in 90 days","ML pricing engine: 20× supply scale, $600K in 8 months","AI content pipeline: 65% reduction in manual ops"],
    metrics:["20× supply scale","40% wallet adoption","$600K / 8mo","25K+ new users"]},
   {period:"2021 — 2023",role:"Senior Product Manager",co:"Mumzworld · Tamer Group",loc:"Dubai, UAE · GCC & MENA",color:"#34D399",type:"AI · Payments · SaaS",
@@ -109,14 +109,14 @@ const TOOLS=[
 ];
 
 /* ── HELPERS ── */
-function SL({label,sub}){return(<div style={{marginBottom:sub?10:0}}><div style={{display:'flex',alignItems:'center',gap:12}}><span style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'3px',color:'#38BDF8',textTransform:'uppercase',whiteSpace:'nowrap',flexShrink:0}}>{'// '}{label}</span><div style={{flex:1,height:1,background:'linear-gradient(90deg,rgba(56,189,248,0.35),transparent)',minWidth:0}}/></div>{sub&&<p style={{fontSize:13.5,color:'#64748B',marginTop:8,lineHeight:1.7,fontFamily:'DM Sans'}}>{sub}</p>}</div>);}
+function SL({label,sub}){return(<div style={{marginBottom:sub?10:0}}><div style={{display:'flex',alignItems:'center',gap:12}}><span style={{fontFamily:'JetBrains Mono',fontSize:10,letterSpacing:'3px',color:'#38BDF8',textTransform:'uppercase',whiteSpace:'nowrap',flexShrink:0}}>{'// '}{label}</span><div style={{flex:1,height:1,background:'linear-gradient(90deg,rgba(56,189,248,0.35),transparent)',minWidth:0}}/></div>{sub&&<p style={{fontSize:13.5,color:'#64748B',marginTop:8,lineHeight:1.7,fontFamily:'Inter'}}>{sub}</p>}</div>);}
 
 /* ── NAV ── */
 function Nav({active}){
   const mob=useMobile();const[sc,setSc]=useState(false);const[open,setOpen]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>40);window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h);},[]);
   const go=id=>{setOpen(false);setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}),50);};
-  const links=[{id:'about',l:'About'},{id:'systems',l:'Systems'},{id:'thinking',l:'Thinking'},{id:'experience',l:'Career'},{id:'skills',l:'Stack'},{id:'contact',l:'Contact'}];
+  const links=[{id:'about',l:'About'},{id:'why',l:'Why'},{id:'systems',l:'Systems'},{id:'thinking',l:'Thinking'},{id:'experience',l:'Career'},{id:'skills',l:'Stack'},{id:'credentials',l:'Creds'},{id:'contact',l:'Contact'}];
   return(<>
     <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:1000,padding:mob?'0 20px':'0 40px',height:64,display:'flex',alignItems:'center',justifyContent:'space-between',background:(sc||open)?'rgba(6,8,15,0.97)':'transparent',backdropFilter:(sc||open)?'blur(24px)':'none',borderBottom:(sc||open)?'1px solid rgba(255,255,255,0.06)':'1px solid transparent',transition:'all 0.3s'}}>
       <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
@@ -127,12 +127,12 @@ function Nav({active}){
         {open?<span style={{color:'#38BDF8',fontSize:20,lineHeight:1}}>✕</span>:<>{[0,1,2].map(i=><span key={i} style={{display:'block',width:i===1?16:22,height:2,background:'#94A3B8',borderRadius:2}}/>)}</>}
       </button>):(<>
         <div style={{display:'flex',gap:2}}>{links.map(l=>(<a key={l.id} href={`#${l.id}`} style={{padding:'6px 13px',borderRadius:20,fontSize:10,fontWeight:600,letterSpacing:'0.8px',textTransform:'uppercase',textDecoration:'none',color:active===l.id?'#38BDF8':'#64748B',background:active===l.id?'rgba(56,189,248,0.1)':'transparent',border:active===l.id?'1px solid rgba(56,189,248,0.2)':'1px solid transparent',transition:'all 0.2s',fontFamily:'Plus Jakarta Sans'}}>{l.l}</a>))}</div>
-        <a href="#contact" style={{padding:'9px 22px',borderRadius:20,fontSize:11,fontWeight:700,color:'#fff',background:'linear-gradient(135deg,#38BDF8,#818CF8)',textDecoration:'none',letterSpacing:'0.3px',boxShadow:'0 0 28px rgba(56,189,248,0.28)',whiteSpace:'nowrap',flexShrink:0,fontFamily:'Plus Jakarta Sans'}}>Let's Talk →</a>
+        <a href="#contact" style={{padding:'9px 22px',borderRadius:20,fontSize:11,fontWeight:700,color:'#fff',background:'linear-gradient(135deg,#38BDF8,#818CF8)',textDecoration:'none',letterSpacing:'0.3px',boxShadow:'0 0 28px rgba(56,189,248,0.28)',whiteSpace:'nowrap',flexShrink:0,fontFamily:'Plus Jakarta Sans'}}>Building AI? Let's talk →</a>
       </>)}
     </nav>
     {mob&&open&&(<div style={{position:'fixed',top:64,left:0,right:0,zIndex:999,background:'rgba(6,8,15,0.97)',backdropFilter:'blur(24px)',borderBottom:'1px solid rgba(255,255,255,0.06)',animation:'slideDown 0.2s ease',paddingBottom:16}}>
       {links.map(l=>(<button key={l.id} onClick={()=>go(l.id)} style={{display:'block',width:'100%',textAlign:'left',padding:'15px 24px',background:'none',border:'none',cursor:'pointer',fontFamily:'Plus Jakarta Sans',fontSize:15,fontWeight:600,color:active===l.id?'#38BDF8':'#94A3B8',borderLeft:`3px solid ${active===l.id?'#38BDF8':'transparent'}`}}>{l.l}</button>))}
-      <div style={{padding:'12px 20px 0'}}><a href="#contact" style={{display:'block',textAlign:'center',padding:13,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',color:'#fff',textDecoration:'none',fontSize:13,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>Let's Talk →</a></div>
+      <div style={{padding:'12px 20px 0'}}><a href="#contact" style={{display:'block',textAlign:'center',padding:13,borderRadius:10,background:'linear-gradient(135deg,#38BDF8,#818CF8)',color:'#fff',textDecoration:'none',fontSize:13,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>Building AI? Let's talk →</a></div>
     </div>)}
   </>);
 }
@@ -156,28 +156,29 @@ function Hero(){
           <div style={{animation:'fadeUp 0.75s ease forwards'}}>
             <div style={{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 14px',borderRadius:20,border:'1px solid rgba(56,189,248,0.2)',background:'rgba(56,189,248,0.05)',marginBottom:24}}>
               <span style={{width:7,height:7,borderRadius:'50%',background:'#34D399',boxShadow:'0 0 8px #34D399',display:'inline-block',animation:'pulse 2s infinite',flexShrink:0}}/>
-              <span style={{fontFamily:'JetBrains Mono',fontSize:mob?8.5:10,color:'#38BDF8',letterSpacing:'1px'}}>AVAILABLE · PORTO, PORTUGAL · EU WORK AUTH</span>
+              <span style={{fontFamily:'JetBrains Mono',fontSize:mob?8.5:10,color:'#38BDF8',letterSpacing:'1px'}}>AVAILABLE · BERLIN, GERMANY · EU WORK AUTH</span>
             </div>
             <h1 style={{fontWeight:800,fontSize:mob?'clamp(44px,12vw,68px)':'clamp(46px,5.5vw,76px)',lineHeight:0.96,letterSpacing:'-2px',color:'#F1F5F9',marginBottom:16}}>
               Rajeev<br/><span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Kumar</span>
             </h1>
             {/* The positioning statement */}
             <div style={{marginBottom:20,paddingLeft:16,borderLeft:'3px solid rgba(56,189,248,0.4)'}}>
-              <p style={{fontSize:mob?14:16,color:'#F1F5F9',fontWeight:600,marginBottom:4,lineHeight:1.5}}>Most AI products generate outputs.</p>
-              <p style={{fontSize:mob?14:16,color:'#38BDF8',fontWeight:700,lineHeight:1.5}}>I build systems that decide what to do with them.</p>
+              <p style={{fontSize:mob?14:16,color:'#F1F5F9',fontWeight:600,marginBottom:4,lineHeight:1.5}}>I build AI systems that turn signals into decisions and execution.</p>
+              <p style={{fontSize:mob?14:16,color:'#38BDF8',fontWeight:700,lineHeight:1.5}}>From global fintech platforms → to AI-native products generating 100–300 outputs/day.</p>
+              <p style={{fontSize:mob?12:13,color:'#64748B',fontWeight:600,letterSpacing:'2px',marginTop:8,fontFamily:'JetBrains Mono',textTransform:'uppercase'}}>Product × Engineering × AI</p>
             </div>
             <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:20,minHeight:32}}>
-              <span style={{fontFamily:'DM Sans',fontStyle:'italic',fontSize:mob?18:22,color:'#94A3B8',fontWeight:400}}>{typed}</span>
+              <span style={{fontFamily:'Inter',fontStyle:'italic',fontSize:mob?18:22,color:'#94A3B8',fontWeight:400}}>{typed}</span>
               <span style={{display:'inline-block',width:2,height:20,background:'#38BDF8',animation:'blink 1s steps(1) infinite',flexShrink:0}}/>
             </div>
             <p style={{fontSize:mob?13.5:15,lineHeight:1.88,color:'#94A3B8',maxWidth:520,marginBottom:28}}>
-              I design and ship AI-powered systems that automate decision-making, content, and growth — from 0→1 to scale. Started as an engineer → grew into product → now operating as a builder across both. Built products at Alibaba (Lazada), Jumia, Mumzworld, and HafH across 25+ global markets.
+              I design and ship AI systems across fintech, marketplaces, and automation — from 0→1 to scale. Engineer turned product builder. Shipped at Alibaba, Jumia, Mumzworld, and HafH across 25+ global markets.
             </p>
             <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:36}}>
               {[{h:"#contact",l:"Get in Touch",p:true},{h:"https://linkedin.com/in/rajeevkumar9",l:"LinkedIn →",p:false},{h:"https://github.com/rajeevcode",l:"GitHub →",p:false}].map(b=>(<a key={b.l} href={b.h} target={b.p?undefined:"_blank"} style={{padding:b.p?'12px 24px':'11px 18px',borderRadius:8,fontSize:12,fontWeight:700,textDecoration:'none',background:b.p?'linear-gradient(135deg,#38BDF8,#818CF8)':'rgba(255,255,255,0.04)',color:b.p?'#fff':'#94A3B8',border:b.p?'none':'1px solid rgba(255,255,255,0.09)',transition:'all 0.2s',fontFamily:'Plus Jakarta Sans'}}>{b.l}</a>))}
             </div>
             <div style={{display:'flex',gap:mob?18:36,flexWrap:'wrap',paddingTop:22,borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-              {stats.map(s=>(<div key={s.l}><div style={{fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontFamily:'JetBrains Mono',fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B',fontFamily:'DM Sans'}}>{s.s}</div></div>))}
+              {stats.map(s=>(<div key={s.l}><div style={{fontWeight:800,fontSize:mob?22:28,letterSpacing:'-1.5px',lineHeight:1,color:'#F1F5F9',marginBottom:4}}>{s.v}</div><div style={{fontFamily:'JetBrains Mono',fontSize:9,fontWeight:700,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:2}}>{s.l}</div><div style={{fontSize:11,color:'#64748B',fontFamily:'Inter'}}>{s.s}</div></div>))}
             </div>
           </div>
 
@@ -193,7 +194,7 @@ function Hero(){
               {[
                 {k:"role",v:'["AI Systems Builder","GenAI","Founding Eng"]',c:"#818CF8"},
                 {k:"status",v:'"available_immediately"',c:"#34D399"},
-                {k:"base",v:'"Porto, Portugal 🇵🇹 · EU Work Auth"',c:"#38BDF8"},
+                {k:"base",v:'"Berlin, Germany 🇩🇪 · EU Work Auth"',c:"#38BDF8"},
                 {k:"systems",v:'["Pulsara","Rescale OS","Creative Engine"]',c:"#F59E0B"},
                 {k:"markets",v:'"EU · GCC · APAC · Africa"',c:"#F472B6"},
                 {k:"mba",v:'"IE Business School · GPA 17/20"',c:"#38BDF8"},
@@ -218,7 +219,7 @@ function Hero(){
                 <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/>
                 <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#64748B',letterSpacing:'1px',textTransform:'uppercase',marginBottom:4}}>{m.l}</div>
                 <div style={{fontWeight:800,fontSize:18,color:'#F1F5F9',letterSpacing:'-0.5px',marginBottom:2,fontFamily:'Plus Jakarta Sans'}}>{m.v}</div>
-                <div style={{fontSize:10,color:'#64748B',fontFamily:'DM Sans'}}>{m.s}</div>
+                <div style={{fontSize:10,color:'#64748B',fontFamily:'Inter'}}>{m.s}</div>
               </div>))}
             </div>
           </div>)}
@@ -227,7 +228,7 @@ function Hero(){
         {mob&&(<div style={{marginTop:28,background:'#0C1120',border:'1px solid rgba(255,255,255,0.08)',borderRadius:16,padding:18}}>
           <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#374151',marginBottom:12,letterSpacing:'0.5px'}}>rajeev.config.ts</div>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:9}}>
-            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Porto 🇵🇹 EU',c:'#38BDF8'},
+            {[{l:'Status',v:'Available Now',c:'#34D399'},{l:'Base',v:'Berlin 🇩🇪 EU',c:'#38BDF8'},
               {l:'Impact',v:'$15M+',c:'#F59E0B'},{l:'Markets',v:'25+ Global',c:'#818CF8'},
               {l:'Systems',v:'Pulsara · OS',c:'#F472B6'},{l:'EU Permit',v:'✓ Active',c:'#38BDF8'}].map(m=>(<div key={m.l} style={{background:'rgba(255,255,255,0.03)',borderRadius:10,padding:'11px 13px',position:'relative',overflow:'hidden'}}>
                 <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${m.c},transparent)`}}/>
@@ -284,7 +285,81 @@ function Systems(){
           <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
             {s.metrics.map(m=>(<div key={m} style={{padding:'6px 13px',borderRadius:8,background:`rgba(${rgb(s.color)},0.09)`,border:`1px solid rgba(${rgb(s.color)},0.2)`,fontSize:11.5,fontWeight:700,color:s.color,fontFamily:'Plus Jakarta Sans'}}>{m}</div>))}
           </div>
+          {/* SVG Architecture Diagram */}
+          {active===0&&(<div style={{marginTop:20,background:'rgba(0,0,0,0.3)',borderRadius:12,padding:'16px',border:'1px solid rgba(56,189,248,0.1)',overflowX:'auto'}}>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:12}}>Pulsara — Decision Intelligence Architecture</div>
+            <svg viewBox="0 0 560 90" style={{width:'100%',minWidth:400,height:'auto'}} xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(56,189,248,0.6)"/></marker>
+              </defs>
+              {[{x:10,label:"Signals",sub:"100–300/day",c:"#38BDF8"},{x:120,label:"Scoring",sub:"Relevance filter",c:"#818CF8"},{x:230,label:"LLM Layer",sub:"Claude · GPT",c:"#F59E0B"},{x:340,label:"Decision",sub:"Auto / Operator",c:"#34D399"},{x:450,label:"Execution",sub:"Content · Actions",c:"#F472B6"}].map((node,i)=>(
+                <g key={node.label}>
+                  <rect x={node.x} y="10" width="90" height="52" rx="8" fill={`rgba(${rgb(node.c)},0.1)`} stroke={`rgba(${rgb(node.c)},0.4)`} strokeWidth="1"/>
+                  <text x={node.x+45} y="32" textAnchor="middle" fill={node.c} fontSize="9" fontFamily="Plus Jakarta Sans" fontWeight="700">{node.label}</text>
+                  <text x={node.x+45} y="48" textAnchor="middle" fill="rgba(148,163,184,0.8)" fontSize="7.5" fontFamily="Inter">{node.sub}</text>
+                  {i<4&&<line x1={node.x+90} y1="36" x2={node.x+118} y2="36" stroke="rgba(56,189,248,0.4)" strokeWidth="1.5" markerEnd="url(#arr)"/>}
+                </g>
+              ))}
+              <text x="280" y="82" textAnchor="middle" fill="rgba(100,116,139,0.7)" fontSize="7" fontFamily="JetBrains Mono">Feedback loop → model improvement → latency: days → hours</text>
+            </svg>
+          </div>)}
+          {active===1&&(<div style={{marginTop:20,background:'rgba(0,0,0,0.3)',borderRadius:12,padding:'16px',border:'1px solid rgba(245,158,11,0.1)',overflowX:'auto'}}>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#F59E0B',letterSpacing:'2px',textTransform:'uppercase',marginBottom:12}}>Rescale OS — Content Production Pipeline</div>
+            <svg viewBox="0 0 560 90" style={{width:'100%',minWidth:400,height:'auto'}} xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(245,158,11,0.6)"/></marker>
+              </defs>
+              {[{x:10,label:"Brief / Input",sub:"Prompt template",c:"#F59E0B"},{x:120,label:"Multi-Model",sub:"Claude·GPT·Codex",c:"#38BDF8"},{x:230,label:"Scoring",sub:"Quality gate",c:"#34D399"},{x:340,label:"Routing",sub:"Auto distribution",c:"#818CF8"},{x:450,label:"Pulsara",sub:"Decision layer",c:"#F472B6"}].map((node,i)=>(
+                <g key={node.label}>
+                  <rect x={node.x} y="10" width="90" height="52" rx="8" fill={`rgba(${rgb(node.c)},0.1)`} stroke={`rgba(${rgb(node.c)},0.4)`} strokeWidth="1"/>
+                  <text x={node.x+45} y="32" textAnchor="middle" fill={node.c} fontSize="9" fontFamily="Plus Jakarta Sans" fontWeight="700">{node.label}</text>
+                  <text x={node.x+45} y="48" textAnchor="middle" fill="rgba(148,163,184,0.8)" fontSize="7.5" fontFamily="Inter">{node.sub}</text>
+                  {i<4&&<line x1={node.x+90} y1="36" x2={node.x+118} y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" markerEnd="url(#arr2)"/>}
+                </g>
+              ))}
+              <text x="280" y="82" textAnchor="middle" fill="rgba(100,116,139,0.7)" fontSize="7" fontFamily="JetBrains Mono">60–70% faster production cycles · multi-model orchestration</text>
+            </svg>
+          </div>)}
+          {active===2&&(<div style={{marginTop:20,background:'rgba(0,0,0,0.3)',borderRadius:12,padding:'16px',border:'1px solid rgba(52,211,153,0.1)',overflowX:'auto'}}>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:8.5,color:'#34D399',letterSpacing:'2px',textTransform:'uppercase',marginBottom:12}}>Creative Engine — Generation Layer</div>
+            <svg viewBox="0 0 560 90" style={{width:'100%',minWidth:400,height:'auto'}} xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(52,211,153,0.6)"/></marker>
+              </defs>
+              {[{x:10,label:"Prompt v/n",sub:"Version control",c:"#34D399"},{x:120,label:"Constraints",sub:"Format + rules",c:"#38BDF8"},{x:230,label:"Generation",sub:"LLM output",c:"#F59E0B"},{x:340,label:"Review Gate",sub:"Quality check",c:"#818CF8"},{x:450,label:"Output",sub:"Rescale OS →",c:"#F472B6"}].map((node,i)=>(
+                <g key={node.label}>
+                  <rect x={node.x} y="10" width="90" height="52" rx="8" fill={`rgba(${rgb(node.c)},0.1)`} stroke={`rgba(${rgb(node.c)},0.4)`} strokeWidth="1"/>
+                  <text x={node.x+45} y="32" textAnchor="middle" fill={node.c} fontSize="9" fontFamily="Plus Jakarta Sans" fontWeight="700">{node.label}</text>
+                  <text x={node.x+45} y="48" textAnchor="middle" fill="rgba(148,163,184,0.8)" fontSize="7.5" fontFamily="Inter">{node.sub}</text>
+                  {i<4&&<line x1={node.x+90} y1="36" x2={node.x+118} y2="36" stroke="rgba(52,211,153,0.4)" strokeWidth="1.5" markerEnd="url(#arr3)"/>}
+                </g>
+              ))}
+              <text x="280" y="82" textAnchor="middle" fill="rgba(100,116,139,0.7)" fontSize="7" fontFamily="JetBrains Mono">Structured generation · consistent quality · built for iteration</text>
+            </svg>
+          </div>)}
         </div>
+      </div>
+
+      {/* Side Project */}
+      <div className="rv" style={{marginTop:20,background:'rgba(255,255,255,0.02)',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'18px 20px':'20px 28px',display:'flex',flexDirection:mob?'column':'row',gap:mob?14:24,alignItems:mob?'flex-start':'center'}}>
+        <div style={{display:'flex',alignItems:'center',gap:12,flexShrink:0}}>
+          <div style={{width:36,height:36,borderRadius:10,background:'rgba(244,114,182,0.1)',border:'1px solid rgba(244,114,182,0.25)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:16,flexShrink:0}}>🛍️</div>
+          <div>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:8,color:'#64748B',letterSpacing:'2px',textTransform:'uppercase',marginBottom:3}}>Side Project</div>
+            <div style={{fontWeight:700,fontSize:14,color:'#F1F5F9',fontFamily:'Plus Jakarta Sans'}}>myETYN</div>
+          </div>
+        </div>
+        <div style={{width:mob?'100%':1,height:mob?1:'100%',background:'rgba(255,255,255,0.06)',flexShrink:0,minHeight:mob?0:30}}/>
+        <div style={{flex:1,minWidth:0}}>
+          <p style={{fontSize:12.5,color:'#64748B',lineHeight:1.65,fontFamily:'Inter',margin:0}}>
+            Live Shopify e-commerce store — built and operated independently. Real traffic, real revenue, hands-on with conversion optimisation, product sourcing, and growth experiments.
+          </p>
+        </div>
+        <a href="https://myetyn.com" target="_blank" style={{padding:'8px 16px',borderRadius:8,background:'rgba(244,114,182,0.08)',border:'1px solid rgba(244,114,182,0.2)',color:'#F472B6',fontSize:11.5,fontWeight:700,textDecoration:'none',fontFamily:'Plus Jakarta Sans',whiteSpace:'nowrap',flexShrink:0,transition:'all 0.2s'}}
+          onMouseOver={e=>{e.currentTarget.style.background='rgba(244,114,182,0.15)';}}
+          onMouseOut={e=>{e.currentTarget.style.background='rgba(244,114,182,0.08)';}}>
+          Visit →
+        </a>
       </div>
     </div>
   </section>);
@@ -316,7 +391,7 @@ function Thinking(){
               </div>
               <div style={{textAlign:'center'}}>
                 <div style={{fontWeight:700,fontSize:mob?13:14,color:'#F1F5F9',marginBottom:3,fontFamily:'Plus Jakarta Sans'}}>{item.step}</div>
-                <div style={{fontSize:mob?10:10.5,color:'#64748B',lineHeight:1.5,fontFamily:'DM Sans',maxWidth:mob?200:110}}>{item.desc}</div>
+                <div style={{fontSize:mob?10:10.5,color:'#64748B',lineHeight:1.5,fontFamily:'Inter',maxWidth:mob?200:110}}>{item.desc}</div>
               </div>
             </div>
             {i<loop.length-1&&(<div style={{color:'rgba(56,189,248,0.3)',fontSize:mob?16:20,flexShrink:0,padding:mob?'0':'0 8px',transform:mob?'rotate(90deg)':'none'}}>→</div>)}
@@ -335,7 +410,7 @@ function Thinking(){
         <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'repeat(3,1fr)',gap:16}}>
           {[{title:"Most PMs",items:["Define features","Write PRDs","Present roadmaps"],dim:true},{title:"Some PMs",items:["Build prototypes","Run experiments","Own metrics"],dim:true},{title:"I Do",items:["Build production systems","Design LLM pipelines","Ship infrastructure"],dim:false,c:"#38BDF8"}].map(col=>(<div key={col.title} style={{padding:'18px 20px',borderRadius:12,background:col.dim?'rgba(255,255,255,0.02)':' rgba(56,189,248,0.06)',border:`1px solid ${col.dim?'rgba(255,255,255,0.06)':'rgba(56,189,248,0.2)'}`}}>
             <div style={{fontWeight:700,fontSize:13,color:col.dim?'#64748B':'#38BDF8',marginBottom:12,fontFamily:'Plus Jakarta Sans'}}>{col.title}</div>
-            {col.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}><div style={{width:4,height:4,borderRadius:'50%',background:col.dim?'#374151':'#38BDF8',flexShrink:0}}/><span style={{fontSize:13,color:col.dim?'#4B5563':'#94A3B8',fontFamily:'DM Sans'}}>{it}</span></div>))}
+            {col.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}><div style={{width:4,height:4,borderRadius:'50%',background:col.dim?'#374151':'#38BDF8',flexShrink:0}}/><span style={{fontSize:13,color:col.dim?'#4B5563':'#94A3B8',fontFamily:'Inter'}}>{it}</span></div>))}
           </div>))}
         </div>
       </div>
@@ -350,7 +425,7 @@ function Thinking(){
             {l:"Platform Domains",items:["Payments, wallets, PCI-DSS","Marketplace systems","SaaS architecture","Fintech infrastructure"],c:"#818CF8"},
           ].map(block=>(<div key={block.l} style={{padding:'16px 18px',borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(block.c)},0.1)`}}>
             <div style={{fontWeight:700,fontSize:12,color:block.c,marginBottom:10,fontFamily:'Plus Jakarta Sans',letterSpacing:'0.3px'}}>{block.l}</div>
-            {block.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'flex-start',marginBottom:6}}><div style={{width:4,height:4,borderRadius:'50%',background:block.c,flexShrink:0,marginTop:6,opacity:0.7}}/><span style={{fontSize:12.5,color:'#94A3B8',lineHeight:1.5,fontFamily:'DM Sans'}}>{it}</span></div>))}
+            {block.items.map(it=>(<div key={it} style={{display:'flex',gap:8,alignItems:'flex-start',marginBottom:6}}><div style={{width:4,height:4,borderRadius:'50%',background:block.c,flexShrink:0,marginTop:6,opacity:0.7}}/><span style={{fontSize:12.5,color:'#94A3B8',lineHeight:1.5,fontFamily:'Inter'}}>{it}</span></div>))}
           </div>))}
         </div>
       </div>
@@ -379,10 +454,10 @@ function Experience(){
             {e.badge&&<div style={{display:'inline-block',padding:'4px 11px',borderRadius:20,background:'rgba(52,211,153,0.1)',border:'1px solid rgba(52,211,153,0.22)',fontSize:10,fontWeight:700,color:'#34D399',letterSpacing:'1px',textTransform:'uppercase',fontFamily:'Plus Jakarta Sans'}}>{e.badge}</div>}
           </div>
           <h3 style={{fontSize:mob?17:22,fontWeight:800,letterSpacing:'-0.5px',color:'#F1F5F9',marginBottom:8,lineHeight:1.2}}>{e.role}</h3>
-          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:12,alignItems:'center'}}><span style={{fontSize:12,color:e.color,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>{e.co}</span><span style={{fontSize:11,color:'#64748B',fontFamily:'DM Sans'}}>📍 {e.loc}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B'}}>{e.period}</span></div>
-          <p style={{fontSize:mob?12.5:13.5,lineHeight:1.78,color:'#94A3B8',marginBottom:14,fontFamily:'DM Sans'}}>{e.desc}</p>
+          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:12,alignItems:'center'}}><span style={{fontSize:12,color:e.color,fontWeight:700,fontFamily:'Plus Jakarta Sans'}}>{e.co}</span><span style={{fontSize:11,color:'#64748B',fontFamily:'Inter'}}>📍 {e.loc}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B'}}>{e.period}</span></div>
+          <p style={{fontSize:mob?12.5:13.5,lineHeight:1.78,color:'#94A3B8',marginBottom:14,fontFamily:'Inter'}}>{e.desc}</p>
           <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:14}}>
-            {e.bullets.map(b=>(<div key={b} style={{display:'flex',gap:10,alignItems:'flex-start'}}><div style={{width:5,height:5,borderRadius:'50%',background:e.color,flexShrink:0,marginTop:7,boxShadow:`0 0 6px ${e.color}`}}/><span style={{fontSize:mob?12:13,color:'#94A3B8',lineHeight:1.65,fontFamily:'DM Sans'}}>{b}</span></div>))}
+            {e.bullets.map(b=>(<div key={b} style={{display:'flex',gap:10,alignItems:'flex-start'}}><div style={{width:5,height:5,borderRadius:'50%',background:e.color,flexShrink:0,marginTop:7,boxShadow:`0 0 6px ${e.color}`}}/><span style={{fontSize:mob?12:13,color:'#94A3B8',lineHeight:1.65,fontFamily:'Inter'}}>{b}</span></div>))}
           </div>
           <div style={{display:'flex',gap:7,flexWrap:'wrap'}}>{e.metrics.map(m=>(<div key={m} style={{padding:'5px 11px',borderRadius:7,background:`rgba(${rgb(e.color)},0.09)`,border:`1px solid rgba(${rgb(e.color)},0.18)`,fontSize:11,fontWeight:700,color:e.color,fontFamily:'Plus Jakarta Sans'}}>{m}</div>))}</div>
         </div>
@@ -402,7 +477,7 @@ function Skills(){
         {SKILLS.map(sk=>(<div key={sk.cat} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?18:24,transition:'all 0.25s',cursor:'default',position:'relative',overflow:'hidden'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(sk.color)},0.3)`;e.currentTarget.style.transform='translateY(-3px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
           <div style={{position:'absolute',top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${sk.color},transparent)`}}/>
           <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:13}}><span style={{fontSize:16}}>{sk.icon}</span><span style={{fontFamily:'JetBrains Mono',fontSize:9.5,letterSpacing:'2px',color:sk.color,textTransform:'uppercase'}}>{sk.cat}</span></div>
-          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>{sk.items.map(it=>(<span key={it} style={{padding:'4px 10px',borderRadius:6,background:`rgba(${rgb(sk.color)},0.07)`,border:`1px solid rgba(${rgb(sk.color)},0.14)`,fontSize:11,color:'#94A3B8',fontWeight:500,fontFamily:'DM Sans'}}>{it}</span>))}</div>
+          <div style={{display:'flex',flexWrap:'wrap',gap:6}}>{sk.items.map(it=>(<span key={it} style={{padding:'4px 10px',borderRadius:6,background:`rgba(${rgb(sk.color)},0.07)`,border:`1px solid rgba(${rgb(sk.color)},0.14)`,fontSize:11,color:'#94A3B8',fontWeight:500,fontFamily:'Inter'}}>{it}</span>))}</div>
         </div>))}
       </div>
       <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:20,padding:mob?'22px 18px':'28px 32px'}}>
@@ -426,8 +501,8 @@ function Contact(){
           <span style={{background:'linear-gradient(135deg,#38BDF8,#818CF8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>platforms, or systems —</span>
         </h2>
         <p style={{fontSize:mob?15:17,color:'#38BDF8',fontWeight:700,marginBottom:8,fontFamily:'Plus Jakarta Sans'}}>we should talk.</p>
-        <p style={{fontSize:mob?13:14.5,color:'#64748B',maxWidth:440,margin:'0 auto 36px',lineHeight:1.75,fontFamily:'DM Sans'}}>
-          Available immediately. Remote-first. EU residence permit.<br/>
+        <p style={{fontSize:mob?13:14.5,color:'#64748B',maxWidth:440,margin:'0 auto 36px',lineHeight:1.75,fontFamily:'Inter'}}>
+          Available immediately. Remote-first. Based in Berlin, Germany.<br/>
           Open to relocation. I work best where ownership matters and speed counts.
         </p>
         <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
@@ -441,9 +516,131 @@ function Contact(){
 function Footer(){
   const mob=useMobile();
   return(<footer style={{borderTop:'1px solid rgba(255,255,255,0.06)',padding:mob?'20px':'22px 40px',display:'flex',flexDirection:mob?'column':'row',justifyContent:'space-between',alignItems:mob?'flex-start':'center',gap:8}}>
-    <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>© 2026 Rajeev Kumar · Porto, Portugal</span>
+    <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>© 2026 Rajeev Kumar · Berlin, Germany</span>
     <span style={{fontFamily:'JetBrains Mono',fontSize:10,color:'#64748B'}}>AI Systems Builder · EU Work Auth · Remote-first</span>
   </footer>);
+}
+
+function Credentials(){
+  const mob=useMobile();useReveal();
+  const certs=[
+    {name:"Generative AI for Product Managers",org:"Go Practice",c:"#38BDF8",icon:"🤖"},
+    {name:"Product Management for AI & Data Science",org:"Online",c:"#818CF8",icon:"📊"},
+    {name:"Bloomberg Market Concepts",org:"Bloomberg",c:"#F59E0B",icon:"📈"},
+    {name:"Bloomberg Finance Fundamentals",org:"Bloomberg",c:"#F59E0B",icon:"💹"},
+    {name:"ESG",org:"Bloomberg",c:"#34D399",icon:"🌱"},
+  ];
+  const langs=[
+    {lang:"English",level:"Bilingual / Fluent",bars:5,c:"#38BDF8"},
+    {lang:"Hindi",level:"Native",bars:5,c:"#34D399"},
+    {lang:"Portuguese",level:"A2 — Learning",bars:2,c:"#F59E0B"},
+  ];
+  return(<section id="credentials" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
+    <div style={{maxWidth:1100,margin:'0 auto'}}>
+      <SL label="credentials" sub="Certifications and languages."/>
+      <div style={{display:'grid',gridTemplateColumns:mob?'1fr':'1fr 1fr',gap:20,marginTop:36}}>
+        {/* Certifications */}
+        <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?20:26}}>
+          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:18}}>Certifications</div>
+          <div style={{display:'flex',flexDirection:'column',gap:10}}>
+            {certs.map(c=>(<div key={c.name} style={{display:'flex',alignItems:'center',gap:12,padding:'10px 14px',borderRadius:10,background:'rgba(255,255,255,0.02)',border:`1px solid rgba(${rgb(c.c)},0.1)`,transition:'all 0.2s'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(c.c)},0.3)`;}} onMouseOut={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(c.c)},0.1)`;}}>
+              <span style={{fontSize:16,flexShrink:0}}>{c.icon}</span>
+              <div style={{minWidth:0}}>
+                <div style={{fontSize:12.5,fontWeight:600,color:'#F1F5F9',lineHeight:1.3,fontFamily:'Plus Jakarta Sans'}}>{c.name}</div>
+                <div style={{fontSize:10.5,color:'#64748B',marginTop:2,fontFamily:'Inter'}}>{c.org}</div>
+              </div>
+            </div>))}
+          </div>
+        </div>
+        {/* Languages */}
+        <div className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?20:26}}>
+          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'2px',textTransform:'uppercase',marginBottom:18}}>Languages</div>
+          <div style={{display:'flex',flexDirection:'column',gap:18}}>
+            {langs.map(l=>(<div key={l.lang}>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
+                <div style={{fontWeight:700,fontSize:14,color:'#F1F5F9',fontFamily:'Plus Jakarta Sans'}}>{l.lang}</div>
+                <div style={{fontFamily:'JetBrains Mono',fontSize:9.5,color:'#64748B'}}>{l.level}</div>
+              </div>
+              <div style={{display:'flex',gap:4}}>
+                {[1,2,3,4,5].map(i=>(<div key={i} style={{flex:1,height:4,borderRadius:2,background:i<=l.bars?l.c:'rgba(255,255,255,0.07)',transition:'all 0.2s'}}/>))}
+              </div>
+            </div>))}
+          </div>
+          {/* MBA callout */}
+          <div style={{marginTop:24,padding:'16px 18px',background:'rgba(56,189,248,0.05)',border:'1px solid rgba(56,189,248,0.15)',borderRadius:10}}>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#38BDF8',letterSpacing:'1px',textTransform:'uppercase',marginBottom:10}}>Education</div>
+            <div style={{fontWeight:700,fontSize:13.5,color:'#F1F5F9',fontFamily:'Plus Jakarta Sans',marginBottom:4}}>International MBA</div>
+            <div style={{fontSize:11.5,color:'#94A3B8',fontFamily:'Inter',marginBottom:8}}>IE Business School · Porto Business School</div>
+            <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',marginBottom:10}}>Sep 2024 – Dec 2025</div>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:8}}>
+              {['Finance & Investment','Strategy','AI in Business'].map(s=>(
+                <span key={s} style={{padding:'3px 10px',borderRadius:5,background:'rgba(56,189,248,0.08)',border:'1px solid rgba(56,189,248,0.18)',fontSize:10.5,color:'#38BDF8',fontFamily:'Plus Jakarta Sans',fontWeight:500}}>{s}</span>
+              ))}
+            </div>
+            <div style={{fontSize:11,color:'#64748B',fontFamily:'Inter'}}>FT Global #21 · GPA 17/20 · 50% Merit Scholarship</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>);
+}
+
+
+function WhyIBuild(){
+  const mob=useMobile();useReveal();
+  return(<section id="why" style={{padding:mob?'70px 20px':'100px 40px',background:'rgba(255,255,255,0.008)'}}>
+    <div style={{maxWidth:1100,margin:'0 auto'}}>
+      <SL label="why i build"/>
+      <div className="rv" style={{marginTop:36,display:'grid',gridTemplateColumns:mob?'1fr':'1fr 1fr',gap:24,alignItems:'center'}}>
+        <div>
+          <h2 style={{fontSize:mob?28:42,fontWeight:800,letterSpacing:'-1.5px',color:'#F1F5F9',lineHeight:1.1,marginBottom:20}}>
+            Most AI tools<br/>
+            <span style={{color:'#64748B',fontWeight:400,fontSize:mob?22:34}}>generate outputs.</span>
+          </h2>
+          <p style={{fontSize:mob?14:16,lineHeight:1.85,color:'#94A3B8',marginBottom:16,fontFamily:'Inter'}}>
+            But companies don't struggle with generation — they struggle with <strong style={{color:'#F1F5F9'}}>deciding what matters</strong> and <strong style={{color:'#F1F5F9'}}>executing on it.</strong>
+          </p>
+          <p style={{fontSize:mob?14:16,lineHeight:1.85,color:'#94A3B8',marginBottom:24,fontFamily:'Inter'}}>
+            That's the gap I build for. Every product I've shipped — from Alibaba-scale payment infrastructure to AI decision pipelines — was built around one question:
+          </p>
+          <div style={{padding:'16px 20px',background:'rgba(56,189,248,0.06)',border:'1px solid rgba(56,189,248,0.2)',borderRadius:12,borderLeft:'3px solid #38BDF8'}}>
+            <p style={{fontSize:mob?15:17,color:'#F1F5F9',fontWeight:700,margin:0,lineHeight:1.5,fontFamily:'Plus Jakarta Sans'}}>
+              "What happens after the AI responds?"
+            </p>
+          </div>
+        </div>
+        <div style={{display:'flex',flexDirection:'column',gap:12}}>
+          {[
+            {icon:"⚡",title:"Speed of Execution",desc:"Decisions that used to take days now take hours. Systems that route, score, and act — without waiting for humans to catch up.",c:"#38BDF8"},
+            {icon:"🎯",title:"Signal over Noise",desc:"100–300 AI outputs/day means nothing without a layer that knows which 10 matter. I build that layer.",c:"#F59E0B"},
+            {icon:"🔄",title:"Closed Loop Systems",desc:"Generation without feedback is guesswork. Every system I build measures, learns, and improves itself.",c:"#34D399"},
+          ].map(item=>(<div key={item.title} className="rv" style={{background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:14,padding:'18px 20px',display:'flex',gap:14,alignItems:'flex-start',transition:'all 0.2s'}} onMouseOver={e=>{e.currentTarget.style.borderColor=`rgba(${rgb(item.c)},0.3)`;e.currentTarget.style.transform='translateY(-2px)';}} onMouseOut={e=>{e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';e.currentTarget.style.transform='translateY(0)';}}>
+            <span style={{fontSize:22,flexShrink:0}}>{item.icon}</span>
+            <div>
+              <div style={{fontWeight:700,fontSize:13.5,color:'#F1F5F9',marginBottom:5,fontFamily:'Plus Jakarta Sans'}}>{item.title}</div>
+              <div style={{fontSize:12.5,color:'#64748B',lineHeight:1.65,fontFamily:'Inter'}}>{item.desc}</div>
+            </div>
+          </div>))}
+        </div>
+      </div>
+      {/* Manifesto */}
+      <div className="rv" style={{marginTop:24,background:'#0C1120',border:'1px solid rgba(255,255,255,0.07)',borderRadius:16,padding:mob?'22px 20px':'28px 36px',display:'flex',gap:mob?16:40,flexDirection:mob?'column':'row',alignItems:mob?'flex-start':'center'}}>
+        <div style={{flexShrink:0}}>
+          <div style={{fontFamily:'JetBrains Mono',fontSize:9,color:'#64748B',letterSpacing:'2px',textTransform:'uppercase',marginBottom:10}}>How I think</div>
+          <div style={{fontWeight:800,fontSize:mob?18:22,color:'#F1F5F9',lineHeight:1.2,fontFamily:'Plus Jakarta Sans'}}>I don't think<br/>in features.</div>
+        </div>
+        <div style={{width:mob?'100%':1,height:mob?1:'100%',background:'rgba(255,255,255,0.06)',flexShrink:0,minHeight:mob?0:60}}/>
+        <div style={{display:'flex',gap:mob?10:20,flexWrap:'wrap'}}>
+          {[{t:"Reduce decision time",c:"#38BDF8"},{t:"Scale execution",c:"#34D399"},{t:"Compound over time",c:"#F59E0B"}].map(item=>(
+            <div key={item.t} style={{display:'flex',alignItems:'center',gap:8}}>
+              <div style={{width:6,height:6,borderRadius:'50%',background:item.c,flexShrink:0,boxShadow:`0 0 8px ${item.c}`}}/>
+              <span style={{fontSize:13,color:'#94A3B8',fontFamily:'Inter',fontWeight:500}}>{item.t}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>);
 }
 
 function App(){
@@ -455,12 +652,12 @@ function App(){
     window.addEventListener('mousemove',h,{passive:true});return()=>window.removeEventListener('mousemove',h);
   },[mob]);
   useEffect(()=>{
-    const sections=['about','systems','thinking','experience','skills','contact'];
+    const sections=['about','why','systems','thinking','experience','skills','credentials','contact'];
     const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting)setActive(en.target.id);});},{threshold:0.2});
     sections.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
     return()=>obs.disconnect();
   },[]);
-  return(<div><Nav active={active}/><Hero/><Band/><Systems/><Thinking/><Experience/><Skills/><Contact/><Footer/></div>);
+  return(<div><Nav active={active}/><Hero/><Band/><WhyIBuild/><Systems/><Thinking/><Experience/><Skills/><Credentials/><Contact/><Footer/></div>);
 }
 ReactDOM.render(<App/>,document.getElementById('root'));
 </script>
